@@ -9,6 +9,7 @@ module Ba
   bot.message do |event|
     event.message.react('🐑') if event.message.content.downcase =~ /\bba+\b/
     event.message.react('🐈') if event.message.content.downcase =~ /\bnya+\b/
+    event.message.react('🐶') if event.message.content.downcase =~ /\bawo+\b/
   end
 
   bot.ready do |event|
