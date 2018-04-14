@@ -13,8 +13,7 @@ module Ba
   bot.message do |event|
     event.message.react(BA_EMOJI) if event.message.content.downcase =~ /\bba+\b/
     event.message.react(NYA_EMOJI) if event.message.content.downcase =~ /\bnya+\b/
-    event.message.react(AWOO_EMOJI) if event.message.content.downcase =~ /\bawo+\b/
-    event.message.react(AWOO_EMOJI) if event.message.content.downcase =~ /\bawu+\b/
+    event.message.react(AWOO_EMOJI) if event.message.content.downcase =~ /\baw(u+|o+)\b/
   end
 
   bot.ready do |event|
