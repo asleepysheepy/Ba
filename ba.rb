@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+﻿# frozen_string_literal: true
 
 require 'discordrb'
 
@@ -12,7 +12,7 @@ module Ba
 
   bot.message do |event|
     event.message.react(BA_EMOJI) if event.message.content.downcase =~ /\bba+\b/
-    event.message.react(NYA_EMOJI) if event.message.content.downcase =~ /\bnya+\b/
+    event.message.react(NYA_EMOJI) if event.message.content.downcase =~ /\bnya(a+|h)\b/
     event.message.react(AWOO_EMOJI) if event.message.content.downcase =~ /\baw(u+|o+)\b/
   end
 
