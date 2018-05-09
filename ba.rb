@@ -1,7 +1,7 @@
 ﻿# frozen_string_literal: true
 
 require 'discordrb'
-require './lib/ba_helpers'
+require './lib/ba/ba_helpers'
 
 module Ba
   bot = Discordrb::Bot.new token: ENV['TOKEN']

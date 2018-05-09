@@ -1,0 +1,16 @@
+require: rubocop-rspec
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/LineLength:
+  Exclude:
+    - 'spec/ba/ba_helpers_spec.rb'
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/ba/ba_helpers_spec.rb'
