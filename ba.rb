@@ -1,21 +1,17 @@
 ﻿# frozen_string_literal: true
 
 require 'discordrb'
+require './lib/ba_helpers'
 
 module Ba
   bot = Discordrb::Bot.new token: ENV['TOKEN']
   INVITE_URL = "#{bot.invite_url}&permissions=64".freeze
 
-  AWOO_EMOJI = 'awoo:434500209012375553'.freeze
-  NYA_EMOJI = 'nya:434511854505558019'.freeze
-  BA_EMOJI = '🐑'.freeze
-  TRAIN_EMOJI = '🚄'.freeze
-
   bot.message do |event|
-    event.message.react(BA_EMOJI) if event.message.content.downcase =~ /\bba+\b/
-    event.message.react(NYA_EMOJI) if event.message.content.downcase =~ /nya+[hn]?\b/
-    event.message.react(AWOO_EMOJI) if event.message.content.downcase =~ /\baw(u+|o+)\b/
-    event.message.react(TRAIN_EMOJI) if event.message.content.downcase =~ /\btra+in\b/
+    message_content = event.message.content.downcase
+    BaHelpers.get_message_reactions(message_content).each do |emote|
+      event.message.react emote
+    end
   end
 
   bot.ready do |event|
