@@ -34,6 +34,7 @@ GEM
       ast (~> 2.4.0)
     powerpack (0.1.1)
     rainbow (3.0.0)
+    rake (12.3.1)
     rbnacl (3.4.0)
       ffi
     rest-client (2.0.2)
@@ -60,6 +61,8 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
+    rubocop-rspec (1.25.1)
+      rubocop (>= 0.53.0)
     ruby-progressbar (1.9.0)
     unf (0.1.4)
       unf_ext
@@ -75,8 +78,10 @@ PLATFORMS
 
 DEPENDENCIES
   discordrb!
+  rake
   rspec
   rubocop
+  rubocop-rspec
 
 BUNDLED WITH
    1.16.1

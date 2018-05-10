@@ -5,4 +5,4 @@ COPY Gemfile* ./
 RUN bundle install
 COPY . .
 
-CMD bundle exec ruby ba.rb
+CMD bundle exec rake

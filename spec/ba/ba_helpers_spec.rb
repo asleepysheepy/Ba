@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'ba/ba_helpers'
 
 RSpec.describe Ba::BaHelpers do
