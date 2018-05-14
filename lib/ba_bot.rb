@@ -14,7 +14,7 @@ class BaBot
 
     @bot.message { |event| message event }
     @bot.ready { |event| event.bot.game = 'Ba' }
-    @bot.command(:num_servers) { |event| puts 'run'; num_servers event }
+    @bot.command(:num_servers) { |event| num_servers event }
   end
 
   def message(event)
@@ -25,7 +25,6 @@ class BaBot
   end
 
   def num_servers(event)
-    puts 'running'
     unless event.author.id == 145_696_462_959_935_488
       event << "I'm sorry #{event.author.mention}, you cannot run this command."
       event << 'You must be the bot owner to user this command'
@@ -33,6 +32,5 @@ class BaBot
     end
 
     event << "Ba is currently running on #{@bot.servers.size} servers"
-    puts 'ran'
   end
 end
