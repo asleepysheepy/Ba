@@ -14,6 +14,7 @@ class BaBot
 
     @bot.message { |event| message event }
     @bot.ready { |event| event.bot.game = 'Ba' }
+    @bot.mention { |event| mention event }
     @bot.command(:num_servers) { |event| num_servers event }
   end
 
@@ -22,6 +23,18 @@ class BaBot
     get_message_reactions(message_content).each do |emote|
       event.message.react emote
     end
+  end
+
+  def mention(event)
+    return if event.author.bot_account?
+    
+    event << 'BAAAAAAAAAAA!!!'
+    event << ''
+    event << 'Want to contribute to making me better? Check me out at:'
+    event << '<https://github.com/flutterflies/ba>'
+    event << ''
+    event << 'Add me to your server using this link'
+    event << "<#{@invite_url}>"
   end
 
   def num_servers(event)
