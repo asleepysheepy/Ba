@@ -20,7 +20,7 @@ class BaBot
 
   def message(event)
     message_content = event.message.content.downcase
-    get_message_reactions(message_content).each do |emote|
+    Ba::BaHelpers.get_message_reactions(message_content).each do |emote|
       event.message.react emote
     end
   end

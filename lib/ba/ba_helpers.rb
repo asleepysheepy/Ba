@@ -2,7 +2,7 @@
 
 module Ba
   module BaHelpers
-    def get_message_reactions(message)
+    def self.get_message_reactions(message)
       reactions = []
       reactions << '🐑' if message =~ /\bba+\b/
       reactions << 'nya:434511854505558019' if message =~ /\bnya+[hn]?\b/

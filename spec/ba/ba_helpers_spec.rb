@@ -7,6 +7,7 @@ RSpec.describe Ba::BaHelpers do
   let(:nya_emoji) { 'nya:434511854505558019' }
   let(:awoo_emoji) { 'awoo:434500209012375553' }
   let(:train_emoji) { '🚄' }
+  let(:arf_emoji) { 'arf:446677431160668161' }
 
   describe 'get_message_reactions' do
     context 'with message ba' do
@@ -159,6 +160,27 @@ RSpec.describe Ba::BaHelpers do
         expect(described_class.get_message_reactions('sometrain')).not_to include(train_emoji)
         expect(described_class.get_message_reactions('trainsome')).not_to include(train_emoji)
         expect(described_class.get_message_reactions('sotrainme')).not_to include(train_emoji)
+      end
+    end
+
+    context 'with message train' do
+      it 'returns arf emoji when the mesage contains only arf' do
+        expect(described_class.get_message_reactions('arf')).to include(arf_emoji)
+      end
+
+      it 'returns arf emoji when the message contains arf in a sentence' do
+        expect(described_class.get_message_reactions('some arf')).to include(arf_emoji)
+        expect(described_class.get_message_reactions('arf some')).to include(arf_emoji)
+      end
+
+      it 'returns arf emoji when the message contains arf with multiple Fs' do
+        expect(described_class.get_message_reactions('arfffff')).to include(arf_emoji)
+      end
+
+      it 'returns nothing when the string "arf" appears in another word' do
+        expect(described_class.get_message_reactions('somearf')).not_to include(arf_emoji)
+        expect(described_class.get_message_reactions('arfsome')).not_to include(arf_emoji)
+        expect(described_class.get_message_reactions('soarfme')).not_to include(arf_emoji)
       end
     end
   end
