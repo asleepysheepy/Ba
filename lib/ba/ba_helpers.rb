@@ -8,7 +8,7 @@ module Ba
       reactions << 'nya:434511854505558019' if message =~ /\bnya+[hn]?\b/
       reactions << 'awoo:434500209012375553' if message =~ /\baw(u+|oo+)\b/
       reactions << '🚄' if message =~ /\btra+in\b/
-      reactions << '🐕' if message =~ /\barf+\b/
+      reactions << 'arf:446677431160668161' if message =~ /\barf+\b/
       reactions
     end
   end
