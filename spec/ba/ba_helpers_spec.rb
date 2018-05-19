@@ -163,7 +163,7 @@ RSpec.describe Ba::BaHelpers do
       end
     end
 
-    context 'with message train' do
+    context 'with message arf' do
       it 'returns arf emoji when the mesage contains only arf' do
         expect(described_class.get_message_reactions('arf')).to include(arf_emoji)
       end
@@ -181,6 +181,37 @@ RSpec.describe Ba::BaHelpers do
         expect(described_class.get_message_reactions('somearf')).not_to include(arf_emoji)
         expect(described_class.get_message_reactions('arfsome')).not_to include(arf_emoji)
         expect(described_class.get_message_reactions('soarfme')).not_to include(arf_emoji)
+      end
+    end
+
+    context 'with message choo choo' do
+      it 'returns train emoji when the mesage contains only choo choo with various spacings' do
+        expect(described_class.get_message_reactions('choochoo')).to include(train_emoji)
+        expect(described_class.get_message_reactions('choo choo')).to include(train_emoji)
+        expect(described_class.get_message_reactions('choo  choo')).to include(train_emoji)
+      end
+
+      it 'returns train emoji when the message contains choo choo in a sentence' do
+        expect(described_class.get_message_reactions('some choo choo')).to include(train_emoji)
+        expect(described_class.get_message_reactions('choo choo some')).to include(train_emoji)
+      end
+
+      it 'returns train emoji when the message contains train with multiple Os' do
+        expect(described_class.get_message_reactions('chooo chooooo')).to include(train_emoji)
+      end
+
+      it 'returns nothing when the string "choo" appears alone' do
+        expect(described_class.get_message_reactions('choo')).not_to include(train_emoji)
+      end
+
+      it 'returns nothing when the string appears between "choo choo"' do
+        expect(described_class.get_message_reactions('choo some choo')).not_to include(train_emoji)
+      end
+
+      it 'returns nothing when the string "choo choo" appears in another word' do
+        expect(described_class.get_message_reactions('somechoo choo')).not_to include(train_emoji)
+        expect(described_class.get_message_reactions('choo choosome')).not_to include(train_emoji)
+        expect(described_class.get_message_reactions('sochoo choome')).not_to include(train_emoji)
       end
     end
   end
