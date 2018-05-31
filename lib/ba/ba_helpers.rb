@@ -9,6 +9,7 @@ module Ba
       reactions << 'awoo:434500209012375553' if message =~ /\baw(u+|oo+)\b/
       reactions << '🚄' if message =~ /\b(choo+\s*choo+|tra+in)\b/
       reactions << 'arf:446677431160668161' if message =~ /\barf+\b/
+      reactions << '🐻' if message =~ /\bbe+a+ry?\b/
       reactions
     end
   end
