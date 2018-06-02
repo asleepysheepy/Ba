@@ -7,6 +7,8 @@ RSpec.describe Ba::BaHelpers do
   let(:nya_emoji) { 'nya:434511854505558019' }
   let(:awoo_emoji) { 'awoo:434500209012375553' }
   let(:train_emoji) { '🚄' }
+  let(:arf_emoji) { 'arf:446677431160668161' }
+  let(:bear_emoji) { '🐻' }
 
   describe 'get_message_reactions' do
     context 'with message ba' do
@@ -159,6 +161,102 @@ RSpec.describe Ba::BaHelpers do
         expect(described_class.get_message_reactions('sometrain')).not_to include(train_emoji)
         expect(described_class.get_message_reactions('trainsome')).not_to include(train_emoji)
         expect(described_class.get_message_reactions('sotrainme')).not_to include(train_emoji)
+      end
+    end
+
+    context 'with message arf' do
+      it 'returns arf emoji when the mesage contains only arf' do
+        expect(described_class.get_message_reactions('arf')).to include(arf_emoji)
+      end
+
+      it 'returns arf emoji when the message contains arf in a sentence' do
+        expect(described_class.get_message_reactions('some arf')).to include(arf_emoji)
+        expect(described_class.get_message_reactions('arf some')).to include(arf_emoji)
+      end
+
+      it 'returns arf emoji when the message contains arf with multiple Fs' do
+        expect(described_class.get_message_reactions('arfffff')).to include(arf_emoji)
+      end
+
+      it 'returns nothing when the string "arf" appears in another word' do
+        expect(described_class.get_message_reactions('somearf')).not_to include(arf_emoji)
+        expect(described_class.get_message_reactions('arfsome')).not_to include(arf_emoji)
+        expect(described_class.get_message_reactions('soarfme')).not_to include(arf_emoji)
+      end
+    end
+
+    context 'with message choo choo' do
+      it 'returns train emoji when the mesage contains only choo choo with various spacings' do
+        expect(described_class.get_message_reactions('choochoo')).to include(train_emoji)
+        expect(described_class.get_message_reactions('choo choo')).to include(train_emoji)
+        expect(described_class.get_message_reactions('choo  choo')).to include(train_emoji)
+      end
+
+      it 'returns train emoji when the message contains choo choo in a sentence' do
+        expect(described_class.get_message_reactions('some choo choo')).to include(train_emoji)
+        expect(described_class.get_message_reactions('choo choo some')).to include(train_emoji)
+      end
+
+      it 'returns train emoji when the message contains train with multiple Os' do
+        expect(described_class.get_message_reactions('chooo chooooo')).to include(train_emoji)
+      end
+
+      it 'returns nothing when the string "choo" appears alone' do
+        expect(described_class.get_message_reactions('choo')).not_to include(train_emoji)
+      end
+
+      it 'returns nothing when the string appears between "choo choo"' do
+        expect(described_class.get_message_reactions('choo some choo')).not_to include(train_emoji)
+      end
+
+      it 'returns nothing when the string "choo choo" appears in another word' do
+        expect(described_class.get_message_reactions('somechoo choo')).not_to include(train_emoji)
+        expect(described_class.get_message_reactions('choo choosome')).not_to include(train_emoji)
+        expect(described_class.get_message_reactions('sochoo choome')).not_to include(train_emoji)
+      end
+    end
+
+    context 'with message bear' do
+      it 'returns bear emoji when the message contains only bear' do
+        expect(described_class.get_message_reactions('bear')).to include(bear_emoji)
+      end
+
+      it 'returns bear emoji when the message bear in a sentence' do
+        expect(described_class.get_message_reactions('some bear some')).to include(bear_emoji)
+        expect(described_class.get_message_reactions('bear some some')).to include(bear_emoji)
+        expect(described_class.get_message_reactions('some some bear')).to include(bear_emoji)
+      end
+
+      it 'returns bear emoji when the message contains bear with multiple Es and/or As' do
+        expect(described_class.get_message_reactions('beeeaaaaaaaaaar')).to include(bear_emoji)
+      end
+
+      it 'returns nothing when the string "bear" is part of another word' do
+        expect(described_class.get_message_reactions('unbearable')).not_to include(bear_emoji)
+        expect(described_class.get_message_reactions('bearable')).not_to include(bear_emoji)
+        expect(described_class.get_message_reactions('iamabear')).not_to include(bear_emoji)
+      end
+    end
+
+    context 'with message beary' do
+      it 'returns bear emoji when the message contains only beary' do
+        expect(described_class.get_message_reactions('beary')).to include(bear_emoji)
+      end
+
+      it 'returns bear emoji when the message beary in a sentence' do
+        expect(described_class.get_message_reactions('some beary some')).to include(bear_emoji)
+        expect(described_class.get_message_reactions('beary some some')).to include(bear_emoji)
+        expect(described_class.get_message_reactions('some some beary')).to include(bear_emoji)
+      end
+
+      it 'returns bear emoji when the message contains beary with multiple Es and/or As' do
+        expect(described_class.get_message_reactions('beeeaaaaaaaaaary')).to include(bear_emoji)
+      end
+
+      it 'returns nothing when the string "bear" is part of another word' do
+        expect(described_class.get_message_reactions('unbearyable')).not_to include(bear_emoji)
+        expect(described_class.get_message_reactions('bearyable')).not_to include(bear_emoji)
+        expect(described_class.get_message_reactions('iamabeary')).not_to include(bear_emoji)
       end
     end
   end
