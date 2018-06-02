@@ -9,6 +9,7 @@ RSpec.describe Ba::BaHelpers do
   let(:train_emoji) { '🚄' }
   let(:arf_emoji) { 'arf:446677431160668161' }
   let(:bear_emoji) { '🐻' }
+  let(:caw_emoji) { 'caw:452209651912540160' }
 
   describe 'get_message_reactions' do
     context 'with message ba' do
@@ -257,6 +258,28 @@ RSpec.describe Ba::BaHelpers do
         expect(described_class.get_message_reactions('unbearyable')).not_to include(bear_emoji)
         expect(described_class.get_message_reactions('bearyable')).not_to include(bear_emoji)
         expect(described_class.get_message_reactions('iamabeary')).not_to include(bear_emoji)
+      end
+    end
+
+    context 'with message caw' do
+      it 'returns caw emoji when the message contains only caw' do
+        expect(described_class.get_message_reactions('caw')).to include(caw_emoji)
+      end
+
+      it 'returns caw emoji when the message caw in a sentence' do
+        expect(described_class.get_message_reactions('some caw some')).to include(caw_emoji)
+        expect(described_class.get_message_reactions('caw some some')).to include(caw_emoji)
+        expect(described_class.get_message_reactions('some some caw')).to include(caw_emoji)
+      end
+
+      it 'returns caw emoji when the message contains caw with multiple As and/or Ws' do
+        expect(described_class.get_message_reactions('caaawwwwww')).to include(caw_emoji)
+      end
+
+      it 'returns nothing when the string "caw" is part of another word' do
+        expect(described_class.get_message_reactions('socawme')).not_to include(caw_emoji)
+        expect(described_class.get_message_reactions('cawsome')).not_to include(caw_emoji)
+        expect(described_class.get_message_reactions('somecaw')).not_to include(caw_emoji)
       end
     end
   end
