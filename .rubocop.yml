@@ -6,6 +6,18 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Metrics/AbcSize:
+  Exclude:
+    - 'lib/ba/ba_helpers.rb'
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - 'lib/ba/ba_helpers.rb'
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - 'lib/ba/ba_helpers.rb'
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'

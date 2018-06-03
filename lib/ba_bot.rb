@@ -27,7 +27,7 @@ class BaBot
 
   def mention(event)
     return if event.author.bot_account?
-    
+
     event << 'BAAAAAAAAAAA!!!'
     event << ''
     event << 'Want to contribute to making me better? Check me out at:'
