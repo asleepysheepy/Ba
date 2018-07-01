@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'ba/ba_helpers'
+require 'ba/ba_support/message_helpers'
 
-RSpec.describe Ba::BaHelpers do
+RSpec.describe Ba::BaSupport::MessageHelpers do
   let(:ba_emoji) { '🐑' }
   let(:nya_emoji) { 'nya:434511854505558019' }
   let(:awoo_emoji) { 'awoo:434500209012375553' }
