@@ -34,7 +34,7 @@ module Ba
         {
           num_servers: BA_BOT.servers.count,
           num_users: BA_BOT.users.count,
-          up_time: Ba::BaSupport::Uptime.new(TIME_STARTED).humanize
+          up_time: Ba::BaSupport::Uptime.new(TIME_STARTED, Time.now).humanize
         }
       end
     end
