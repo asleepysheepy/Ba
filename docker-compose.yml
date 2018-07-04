@@ -8,7 +8,6 @@ services:
     image: redis:latest
     volumes:
       - redis:/data
-    # command: redis-server --appendonly
   bot:
     build: .
     restart: always
@@ -18,4 +17,4 @@ services:
       - redis
     environment:
       - REDIS_URL=redis://redis:6379
-      - TOKEN=NDM1NzE3Njk5MDcxNjM5NTUy.DhvJCg.g1rMnveUufksKwAqhgrSDwcuL6Q
+      - TOKEN=
