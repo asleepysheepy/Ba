@@ -7,8 +7,7 @@ module Ba
     module MessageEvent
       extend Discordrb::EventContainer
       message do |event|
-        message_content = event.message.content.downcase
-        Ba::BaSupport::MessageHelpers.get_message_reactions(message_content)
+        Ba::BaSupport::MessageHelpers.get_message_reactions(event)
                                      .each do |emote|
           event.message.react emote
         end

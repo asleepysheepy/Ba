@@ -39,6 +39,7 @@ GEM
     rake (12.3.1)
     rbnacl (3.4.0)
       ffi
+    redis (4.0.1)
     rest-client (2.1.0.rc1)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -83,6 +84,7 @@ PLATFORMS
 DEPENDENCIES
   discordrb!
   rake
+  redis
   rspec
   rubocop
   rubocop-rspec

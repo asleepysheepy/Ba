@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 require 'discordrb'
+require 'redis'
 require_relative 'ba_support/embed_defaults'
 
 module Ba
   BA_BOT = Discordrb::Commands::CommandBot.new(token: ENV['TOKEN'],
                                                prefix: '?ba ')
   INVITE_URL = "#{BA_BOT.invite_url}&permissions=2112"
+  REDIS = Redis.new url: ENV['REDIS_URL']
 
   def self.load_module(name, path)
     new_module = Module.new
