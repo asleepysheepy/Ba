@@ -12,8 +12,8 @@ Metrics/BlockLength:
 
 Metrics/LineLength:
   Exclude:
-    - 'spec/ba/ba_support/message_helpers_spec.rb'
+    - 'spec/ba/ba_support/reaction_spec.rb'
 
 RSpec/MultipleExpectations:
   Exclude:
-    - 'spec/ba/ba_support/message_helpers_spec.rb'
+    - 'spec/ba/ba_support/reaction_spec.rb'

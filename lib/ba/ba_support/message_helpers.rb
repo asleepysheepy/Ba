@@ -1,27 +1,16 @@
 # frozen_string_literal: true
 
+require_relative 'reaction'
+
 module Ba
   module BaSupport
     module MessageHelpers
-      def self.reactions
-        {
-          ba: ['🐑', /\bba+\b/],
-          arf: ['arf:446677431160668161', /\barf+\b/],
-          caw: ['caw:452209651912540160', /\bca+w+\b/],
-          nya: ['nya:434511854505558019', /\bnya+[hn]?\b/],
-          awoo: ['awoo:434500209012375553', /\baw(u+|oo+)\b/],
-          bear: ['🐻', /\bbe+a+ry?\b/],
-          train: ['🚄', /\b(choo+\s*choo+|tra+in)\b/]
-        }
-      end
-
       def self.get_message_reactions(event)
         message_reactions = []
-        reactions.each do |name, reaction|
-          next unless event.message.content.downcase =~ reaction.last
-
-          message_reactions << reaction.first
-          reaction_stats event.server.id, event.author.id, name
+        Reaction.reactions.each do |reaction|
+          next unless reaction.should_react event.message.content.downcase
+          message_reactions << reaction.emoji
+          reaction_stats event.server.id, event.author.id, reaction.name
         end
         message_reactions
       end
