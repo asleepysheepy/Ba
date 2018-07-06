@@ -4,9 +4,9 @@ require_relative '../ba_support/uptime'
 
 module Ba
   module BaCommands
-    module Stats
+    module BotStats
       extend Discordrb::Commands::CommandContainer
-      command :stats do |event|
+      command :bot_stats do |event|
         bot_stats = stats
 
         event.channel.send_embed do |embed|

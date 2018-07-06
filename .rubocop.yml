@@ -6,9 +6,18 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Metrics/AbcSize:
+  Exclude:
+    - 'lib/ba/ba_commands/usage_stats_command.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'lib/ba/ba_commands/usage_stats_command.rb'
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'lib/ba/ba_commands/usage_stats_command.rb'
 
 Metrics/LineLength:
   Exclude:

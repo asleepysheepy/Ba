@@ -24,7 +24,7 @@ module Ba
 
       def self.embed_author(author)
         Discordrb::Webhooks::EmbedAuthor.new(
-          name: "#{author.username}##{author.discriminator}",
+          name: author.distinct,
           icon_url: author.avatar_url
         )
       end
