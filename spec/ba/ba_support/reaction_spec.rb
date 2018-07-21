@@ -173,7 +173,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Train React' do
-    let(:react) { described_class.new :train, '🚄', /\b(choo+\s*choo+|tra+in)\b/ }
+    let(:react) { described_class.new :train, '🚄', /\b(choo+\s*choo+|tra+ins?)\b/ }
 
     context 'with message train' do
       it 'returns train emoji when the mesage contains only train' do
@@ -193,6 +193,27 @@ RSpec.describe Ba::BaSupport::Reaction do
         expect(react.should_react('sometrain')).to be_falsey
         expect(react.should_react('trainsome')).to be_falsey
         expect(react.should_react('sotrainme')).to be_falsey
+      end
+    end
+
+    context 'with message trains' do
+      it 'returns train emoji when the mesage contains only trains' do
+        expect(react.should_react('trains')).to be_truthy
+      end
+
+      it 'returns train emoji when the message contains trains in a sentence' do
+        expect(react.should_react('some trains')).to be_truthy
+        expect(react.should_react('trains some')).to be_truthy
+      end
+
+      it 'returns train emoji when the message contains trains with multiple As' do
+        expect(react.should_react('traaaains')).to be_truthy
+      end
+
+      it 'returns nothing when the string "trains" appears in another word' do
+        expect(react.should_react('sometrains')).to be_falsey
+        expect(react.should_react('trainssome')).to be_falsey
+        expect(react.should_react('sotrainsme')).to be_falsey
       end
     end
 
