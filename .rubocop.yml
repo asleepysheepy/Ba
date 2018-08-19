@@ -8,24 +8,24 @@ Style/Documentation:
 
 Metrics/AbcSize:
   Exclude:
-    - 'lib/ba/ba_helpers.rb'
+    - 'lib/ba/ba_commands/usage_stats_command.rb'
+    - 'lib/ba/ba_commands/help_command.rb'
 
-Metrics/CyclomaticComplexity:
+Metrics/MethodLength:
   Exclude:
-    - 'lib/ba/ba_helpers.rb'
-
-Metrics/PerceivedComplexity:
-  Exclude:
-    - 'lib/ba/ba_helpers.rb'
+    - 'lib/ba/ba_commands/usage_stats_command.rb'
+    - 'lib/ba/ba_commands/help_command.rb'
 
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'lib/ba/ba_commands/usage_stats_command.rb'
 
 Metrics/LineLength:
   Exclude:
-    - 'spec/ba/ba_helpers_spec.rb'
+    - 'spec/ba/ba_support/reaction_spec.rb'
+    - 'lib/ba/ba_commands/help_command.rb'
 
 RSpec/MultipleExpectations:
   Exclude:
-    - 'spec/ba/ba_helpers_spec.rb'
+    - 'spec/ba/ba_support/reaction_spec.rb'
