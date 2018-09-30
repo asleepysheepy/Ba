@@ -18,7 +18,7 @@ module Ba
       end
 
       def self.reactions
-        [
+        reactions = [
           Reaction.new(:ba, '🐑', /\bba+\b/),
           Reaction.new(:arf, 'arf:446677431160668161', /\barf+\b/),
           Reaction.new(:caw, 'caw:452209651912540160', /\bca+w+\b/),
@@ -27,6 +27,16 @@ module Ba
           Reaction.new(:bear, '🐻', /\bbe+a+ry?\b/),
           Reaction.new(:train, '🚄', /\b(choo+\s*choo+|tra+ins?)\b/)
         ]
+
+        # Halloween Reacts
+        if Time.now.month == 10 # If it's october
+          reactions << Reaction.new(:skeletons, '💀', /\bspoo+ky+|sca+r+y+|skele(ton)?s?\b/)
+          reactions << Reaction.new(:ghost, 'booGhost:496023553473380353', /\bgho+st|boo+\b/)
+          reactions << Reaction.new(:pumpkin, 'pumpkin:496013175276175370', /\bpumpkins?\b/)
+          reactions << Reaction.new(:rip, 'rip:496018846042554388', /\bri+p\b/)
+        end
+
+        reactions
       end
     end
   end
