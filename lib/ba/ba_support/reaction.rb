@@ -34,6 +34,7 @@ module Ba
           reactions << Reaction.new(:ghost, 'booGhost:496023553473380353', /\bgho+st|boo+\b/)
           reactions << Reaction.new(:pumpkin, 'pumpkin:496013175276175370', /\bpumpkins?\b/)
           reactions << Reaction.new(:rip, 'rip:496018846042554388', /\bri+p\b/)
+          reactions << Reaction.new(:doot, '🎺', /\bdoo+t\b/)
         end
 
         reactions
