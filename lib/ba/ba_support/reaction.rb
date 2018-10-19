@@ -32,7 +32,7 @@ module Ba
           Reaction.new(:nya, 'nya:434511854505558019', /\b(nya+[hn]?|me+ow)\b/),
           Reaction.new(:awoo, 'awoo:434500209012375553', /\baw(u+|oo+)\b/),
           Reaction.new(:bear, '🐻', /\bbe+a+ry?\b/),
-          Reaction.new(:train, '🚄', /\b(choo+\s*choo+|tra+ins?)\b/)
+          Reaction.new(:train, '🚄', /\bchoo+\s*choo+\b/)
         ]
       end
 
