@@ -9,7 +9,7 @@
 
 ## Add emoji reactions to discord messages
 
-Ba adds reactations to message posted in Discord channels based on regex string matching
+Ba adds reactions to message posted in Discord channels based on regex string matching
 
 ## Running Ba
 
@@ -17,17 +17,18 @@ Ba adds reactations to message posted in Discord channels based on regex string 
 
 * Git
 * Docker
+* docker-compose
 * Discord bot token
 
 ### Installing
 
-1) Clone this repository and cd into the directory `git clone https://github.com/flutterflies/Ba.git ba && cd ba`
-1) Build the Docker image `docker build -t ba_bot .`
-1) Run the Docker image `docker run -it -e TOKEN=YOUR_TOKEN_HERE ba`
+1) Clone this repository and cd into the directory `$ git clone https://github.com/flutterflies/Ba.git ba && cd ba`
+1) Add your token to `docker-compose.yml`
+1) Run the Docker image `$ docker-compose up`
 
 **You can stop ba with ctrl+C
 
 ## Running Tests
 
-After building the docker image you can run tests with `docker run ba rspec`
+Ba's tests can be run with: `$ docker build -t ba . && docker run ba rspec`
 
