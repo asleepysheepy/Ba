@@ -36,6 +36,7 @@ module Ba
 
       def self.pluralize(word, value)
         return word if value == 1
+
         "#{word}s"
       end
     end

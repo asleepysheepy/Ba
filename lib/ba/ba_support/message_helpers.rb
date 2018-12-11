@@ -9,6 +9,7 @@ module Ba
         message_reactions = []
         Reaction.reactions.each do |reaction|
           next unless reaction.should_react event.message.content.downcase
+
           message_reactions << reaction.emoji
           reaction_stats event.server.id, event.author.id, reaction.name
         end
