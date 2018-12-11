@@ -15,6 +15,7 @@ Metrics/MethodLength:
   Exclude:
     - 'lib/ba/ba_commands/usage_stats_command.rb'
     - 'lib/ba/ba_commands/help_command.rb'
+    - 'lib/ba/ba_support/reaction.rb'
 
 Metrics/BlockLength:
   Exclude:

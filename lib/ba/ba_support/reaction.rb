@@ -38,11 +38,21 @@ module Ba
 
       def self.october_reactions
         [
-          Reaction.new(:skeletons, '💀', /\b(spoo+ky+|sca+r+y+|skele(ton)?s?)\b/),
-          Reaction.new(:ghost, 'booGhost:496023553473380353', /\b(gho+st|boo+)\b/),
-          Reaction.new(:pumpkin, 'pumpkin:496013175276175370', /\bpumpkins?\b/),
-          Reaction.new(:rip, 'rip:496018846042554388', /\bri+p\b/),
-          Reaction.new(:doot, '🎺', /\bdoo+t\b/)
+          Reaction.new(:skeletons,
+                       '💀',
+                       /\b(spoo+ky+|sca+r+y+|skele(ton)?s?)\b/),
+          Reaction.new(:ghost,
+                       'booGhost:496023553473380353',
+                       /\b(gho+st|boo+)\b/),
+          Reaction.new(:pumpkin,
+                       'pumpkin:496013175276175370',
+                       /\bpumpkins?\b/),
+          Reaction.new(:rip,
+                       'rip:496018846042554388',
+                       /\bri+p\b/),
+          Reaction.new(:doot,
+                       '🎺',
+                       /\bdoo+t\b/)
         ]
       end
     end
