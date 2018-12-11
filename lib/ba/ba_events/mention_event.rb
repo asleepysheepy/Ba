@@ -11,7 +11,7 @@ module Ba
           embed.url = Ba::BaSupport::EmbedDefaults.embed_url
           embed.timestamp = Time.now
 
-          embed.description = 'Ba Nya Awoo Choo Choo Train Arf Caw Beary'
+          embed.description = 'Ba Nya Awoo Choo Choo Arf Caw Beary'
 
           embed.thumbnail = Ba::BaSupport::EmbedDefaults.embed_thumbnail
           embed.author = Ba::BaSupport::EmbedDefaults.embed_author event.author
