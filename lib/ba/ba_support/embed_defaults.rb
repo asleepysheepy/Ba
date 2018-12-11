@@ -13,7 +13,7 @@ module Ba
 
       def self.embed_footer
         Discordrb::Webhooks::EmbedFooter.new(
-          text: 'Ba is crafted with love by Flutterflies#6456',
+          text: 'Ba is crafted with love by Sleepy Sheepy#0179',
           icon_url: BA_BOT.users[145_696_462_959_935_488].avatar_url
         )
       end
