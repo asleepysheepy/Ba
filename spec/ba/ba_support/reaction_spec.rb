@@ -4,7 +4,7 @@ require 'ba/ba_support/reaction'
 
 RSpec.describe Ba::BaSupport::Reaction do
   describe 'Ba React' do
-    let(:react) { described_class.new :ba, '🐑', /\bba+\b/ }
+    let(:react) { described_class.new name: :ba, emoji: '🐑', regex: /\bba+\b/ }
 
     context 'with message ba' do
       it 'returns true when the mesage contains only ba' do
@@ -29,7 +29,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Nya React' do
-    let(:react) { described_class.new :nya, 'nya:434511854505558019', /\bnya+[hn]?\b/ }
+    let(:react) { described_class.new name: :nya, emoji: 'nya:434511854505558019', regex: /\bnya+[hn]?\b/ }
 
     context 'with message nya' do
       it 'returns true when the mesage contains only nya' do
@@ -96,7 +96,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Awoo React' do
-    let(:react) { described_class.new :awoo, 'awoo:434500209012375553', /\baw(u+|oo+)\b/ }
+    let(:react) { described_class.new name: :awoo, emoji: 'awoo:434500209012375553', regex: /\baw(u+|oo+)\b/ }
 
     context 'with message awoo' do
       it 'returns awoo emoji when the message contains only awoo' do
@@ -148,7 +148,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Arf React' do
-    let(:react) { described_class.new :arf, 'arf:446677431160668161', /\barf+\b/ }
+    let(:react) { described_class.new name: :arf, emoji: 'arf:446677431160668161', regex: /\barf+\b/ }
 
     context 'with message arf' do
       it 'returns arf emoji when the mesage contains only arf' do
@@ -173,49 +173,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Train React' do
-    let(:react) { described_class.new :train, '🚄', /\b(choo+\s*choo+|tra+ins?)\b/ }
-
-    context 'with message train' do
-      it 'returns train emoji when the mesage contains only train' do
-        expect(react.should_react('train')).to be_truthy
-      end
-
-      it 'returns train emoji when the message contains train in a sentence' do
-        expect(react.should_react('some train')).to be_truthy
-        expect(react.should_react('train some')).to be_truthy
-      end
-
-      it 'returns train emoji when the message contains train with multiple As' do
-        expect(react.should_react('traaaain')).to be_truthy
-      end
-
-      it 'returns nothing when the string "train" appears in another word' do
-        expect(react.should_react('sometrain')).to be_falsey
-        expect(react.should_react('trainsome')).to be_falsey
-        expect(react.should_react('sotrainme')).to be_falsey
-      end
-    end
-
-    context 'with message trains' do
-      it 'returns train emoji when the mesage contains only trains' do
-        expect(react.should_react('trains')).to be_truthy
-      end
-
-      it 'returns train emoji when the message contains trains in a sentence' do
-        expect(react.should_react('some trains')).to be_truthy
-        expect(react.should_react('trains some')).to be_truthy
-      end
-
-      it 'returns train emoji when the message contains trains with multiple As' do
-        expect(react.should_react('traaaains')).to be_truthy
-      end
-
-      it 'returns nothing when the string "trains" appears in another word' do
-        expect(react.should_react('sometrains')).to be_falsey
-        expect(react.should_react('trainssome')).to be_falsey
-        expect(react.should_react('sotrainsme')).to be_falsey
-      end
-    end
+    let(:react) { described_class.new name: :train, emoji: '🚄', regex: /\b(choo+\s*choo+)\b/ }
 
     context 'with message choo choo' do
       it 'returns train emoji when the mesage contains only choo choo with various spacings' do
@@ -250,7 +208,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Bear React' do
-    let(:react) { described_class.new :bear, '🐻', /\bbe+a+ry?\b/ }
+    let(:react) { described_class.new name: :bear, emoji: '🐻', regex: /\bbe+a+ry?\b/ }
 
     context 'with message bear' do
       it 'returns bear emoji when the message contains only bear' do
@@ -298,7 +256,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Caw React' do
-    let(:react) { described_class.new :caw, 'caw:452209651912540160', /\bca+w+\b/ }
+    let(:react) { described_class.new name: :caw, emoji: 'caw:452209651912540160', regex: /\bca+w+\b/ }
 
     context 'with message caw' do
       it 'returns caw emoji when the message contains only caw' do
