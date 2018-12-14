@@ -4,7 +4,7 @@ require 'ba/ba_support/reaction'
 
 RSpec.describe Ba::BaSupport::Reaction do
   describe 'Ba React' do
-    let(:react) { described_class.new name: :ba, emoji: '🐑', regex: /\bba+\b/ }
+    let(:react) { described_class.base_reactions[:ba] }
 
     context 'with message ba' do
       it 'returns true when the mesage contains only ba' do
@@ -29,7 +29,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Nya React' do
-    let(:react) { described_class.new name: :nya, emoji: 'nya:434511854505558019', regex: /\bnya+[hn]?\b/ }
+    let(:react) { described_class.base_reactions[:nya] }
 
     context 'with message nya' do
       it 'returns true when the mesage contains only nya' do
@@ -96,7 +96,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Awoo React' do
-    let(:react) { described_class.new name: :awoo, emoji: 'awoo:434500209012375553', regex: /\baw(u+|oo+)\b/ }
+    let(:react) { described_class.base_reactions[:awoo] }
 
     context 'with message awoo' do
       it 'returns awoo emoji when the message contains only awoo' do
@@ -148,7 +148,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Arf React' do
-    let(:react) { described_class.new name: :arf, emoji: 'arf:446677431160668161', regex: /\barf+\b/ }
+    let(:react) { described_class.base_reactions[:arf] }
 
     context 'with message arf' do
       it 'returns arf emoji when the mesage contains only arf' do
@@ -173,7 +173,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Train React' do
-    let(:react) { described_class.new name: :train, emoji: '🚄', regex: /\b(choo+\s*choo+)\b/ }
+    let(:react) { described_class.base_reactions[:train] }
 
     context 'with message choo choo' do
       it 'returns train emoji when the mesage contains only choo choo with various spacings' do
@@ -208,7 +208,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Bear React' do
-    let(:react) { described_class.new name: :bear, emoji: '🐻', regex: /\bbe+a+ry?\b/ }
+    let(:react) { described_class.base_reactions[:bear] }
 
     context 'with message bear' do
       it 'returns bear emoji when the message contains only bear' do
@@ -256,7 +256,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Caw React' do
-    let(:react) { described_class.new name: :caw, emoji: 'caw:522999846043648010', regex: /\bca+w+\b/ }
+    let(:react) { described_class.base_reactions[:caw] }
 
     context 'with message caw' do
       it 'returns caw emoji when the message contains only caw' do

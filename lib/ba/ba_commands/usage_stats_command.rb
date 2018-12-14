@@ -26,12 +26,12 @@ module Ba
         results = {
           name: 'Ba global usage stats',
           description: 'Usage statistics for all users across all servers',
-          total: reaction_count('global_reacts')
+          total: _reaction_count('global_reacts')
         }
 
-        Ba::BaSupport::Reaction.reactions.each do |reaction|
-          results.store(reaction.name,
-                        reaction_count("global_#{reaction.name}"))
+        Ba::BaSupport::Reaction.reactions.each_key do |name|
+          results.store(name,
+                        _reaction_count("global_#{name}"))
         end
 
         results
@@ -41,12 +41,12 @@ module Ba
         results = {
           name: 'Ba server usage stats',
           description: 'Usage statistics for all users on this server',
-          total: reaction_count("#{server_id}_reacts")
+          total: _reaction_count("#{server_id}_reacts")
         }
 
-        Ba::BaSupport::Reaction.reactions.each do |reaction|
-          results.store(reaction.name,
-                        reaction_count("#{server_id}_#{reaction.name}"))
+        Ba::BaSupport::Reaction.reactions.each_key do |name|
+          results.store(name,
+                        _reaction_count("#{server_id}_#{name}"))
         end
 
         results
@@ -56,12 +56,12 @@ module Ba
         results = {
           name: 'Ba server usage stats',
           description: "Usage statistics for #{user.distinct} on all servers",
-          total: reaction_count("#{user.id}_reacts")
+          total: _reaction_count("#{user.id}_reacts")
         }
 
-        Ba::BaSupport::Reaction.reactions.each do |reaction|
-          results.store(reaction.name,
-                        reaction_count("#{user.id}_#{reaction.name}"))
+        Ba::BaSupport::Reaction.reactions.each_key do |name|
+          results.store(name,
+                        _reaction_count("#{user.id}_#{name}"))
         end
 
         results
@@ -80,33 +80,21 @@ module Ba
           embed.footer = Ba::BaSupport::EmbedDefaults.embed_footer
 
           embed.add_field name: 'Total', value: stats[:total]
-          embed.add_field(name: '🐑',
-                          value: stats[:ba],
-                          inline: true)
-          embed.add_field(name: '<:nya:434511854505558019>',
-                          value: stats[:nya],
-                          inline: true)
-          embed.add_field(name: '<:awoo:434500209012375553>',
-                          value: stats[:awoo],
-                          inline: true)
-          embed.add_field(name: '<:arf:446677431160668161>',
-                          value: stats[:arf],
-                          inline: true)
-          embed.add_field(name: '🚄',
-                          value: stats[:train],
-                          inline: true)
-          embed.add_field(name: '🐻',
-                          value: stats[:bear],
-                          inline: true)
-          embed.add_field(name: '<:caw:522999846043648010>',
-                          value: stats[:caw],
-                          inline: true)
+          Ba::BaSupport::Reaction.reactions.each do |name, reaction|
+            embed.add_field(name: _emoji_for_embed(reaction.emoji),
+                            value: stats[name],
+                            inline: true)
+          end
         end
       end
 
-      def self.reaction_count(reaction_name)
+      def self._reaction_count(reaction_name)
         stat = REDIS.get reaction_name
         stat.nil? ? 0 : stat
+      end
+
+      def self._emoji_for_embed(emoji)
+        emoji.include?(':') ? "<:#{emoji}>" : emoji
       end
     end
   end

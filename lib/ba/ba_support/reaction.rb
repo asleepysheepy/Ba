@@ -3,14 +3,12 @@
 module Ba
   module BaSupport
     class Reaction
-      attr_reader :name
       attr_reader :emoji
       attr_reader :regex
 
-      def initialize(attributes = {})
-        @name = attributes[:name]
-        @emoji = attributes[:emoji]
-        @regex = attributes[:regex]
+      def initialize(emoji, regex)
+        @emoji = emoji
+        @regex = regex
       end
 
       def should_react(message)
@@ -25,49 +23,25 @@ module Ba
       end
 
       def self.base_reactions
-        [
-          Reaction.new(name: :ba,
-                       emoji: '🐑',
-                       regex: /\bba+\b/),
-          Reaction.new(name: :arf,
-                       emoji: 'arf:446677431160668161',
-                       regex: /\barf+\b/),
-          Reaction.new(name: :caw,
-                       emoji: 'caw:522999846043648010',
-                       regex: /\bca+w+\b/),
-          Reaction.new(name: :nya,
-                       emoji: 'nya:434511854505558019',
-                       regex: /\b(nya+[hn]?|me+ow)\b/),
-          Reaction.new(name: :awoo,
-                       emoji: 'awoo:434500209012375553',
-                       regex: /\baw(u+|oo+)\b/),
-          Reaction.new(name: :bear,
-                       emoji: '🐻',
-                       regex: /\bbe+a+ry?\b/),
-          Reaction.new(name: :train,
-                       emoji: '🚄',
-                       regex: /\bchoo+\s*choo+\b/)
-        ]
+        {
+          arf: Reaction.new('arf:446677431160668161', /\barf+\b/),
+          awoo: Reaction.new('awoo:434500209012375553', /\baw(u+|oo+)\b/),
+          ba: Reaction.new('🐑', /\bba+\b/),
+          bear: Reaction.new('🐻', /\bbe+a+ry?\b/),
+          caw: Reaction.new('caw:522999846043648010', /\bca+w+\b/),
+          nya: Reaction.new('nya:434511854505558019', /\b(nya+[hn]?|me+ow)\b/),
+          train: Reaction.new('🚄', /\bchoo+\s*choo+\b/)
+        }
       end
 
       def self.october_reactions
-        [
-          Reaction.new(name: :skeletons,
-                       emoji: '💀',
-                       regex: /\b(spoo+ky+|sca+r+y+|skele(ton)?s?)\b/),
-          Reaction.new(name: :ghost,
-                       emoji: 'booGhost:496023553473380353',
-                       regex: /\b(gho+st|boo+)\b/),
-          Reaction.new(name: :pumpkin,
-                       emoji: 'pumpkin:496013175276175370',
-                       regex: /\bpumpkins?\b/),
-          Reaction.new(name: :rip,
-                       emoji: 'rip:496018846042554388',
-                       regex: /\bri+p\b/),
-          Reaction.new(name: :doot,
-                       emoji: '🎺',
-                       regex: /\bdoo+t\b/)
-        ]
+        {
+          doot: Reaction.new('🎺', /\bdoo+t\b/),
+          ghost: Reaction.new('boo:496023553473380353', /\b(gho+st|boo+)\b/),
+          pumpkin: Reaction.new('pumpkin:496013175276175370', /\bpumpkins?\b/),
+          rip: Reaction.new('rip:496018846042554388', /\bri+p\b/),
+          skeletons: Reaction.new('💀', /\b(spoo+ky+|sca+r+y+|skele(ton)?s?)\b/)
+        }
       end
     end
   end

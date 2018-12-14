@@ -7,11 +7,11 @@ module Ba
     module MessageHelpers
       def self.get_message_reactions(event)
         message_reactions = []
-        Reaction.reactions.each do |reaction|
+        Reaction.reactions.each do |name, reaction|
           next unless reaction.should_react event.message.content.downcase
 
           message_reactions << reaction.emoji
-          reaction_stats event.server.id, event.author.id, reaction.name
+          reaction_stats event.server.id, event.author.id, name
         end
         message_reactions
       end
