@@ -98,7 +98,7 @@ module Ba
           embed.add_field(name: '🐻',
                           value: stats[:bear],
                           inline: true)
-          embed.add_field(name: '<:caw:452209651912540160>',
+          embed.add_field(name: '<:caw:522999846043648010>',
                           value: stats[:caw],
                           inline: true)
         end

@@ -256,7 +256,7 @@ RSpec.describe Ba::BaSupport::Reaction do
   end
 
   describe 'Caw React' do
-    let(:react) { described_class.new name: :caw, emoji: 'caw:452209651912540160', regex: /\bca+w+\b/ }
+    let(:react) { described_class.new name: :caw, emoji: 'caw:522999846043648010', regex: /\bca+w+\b/ }
 
     context 'with message caw' do
       it 'returns caw emoji when the message contains only caw' do

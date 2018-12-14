@@ -33,7 +33,7 @@ module Ba
                        emoji: 'arf:446677431160668161',
                        regex: /\barf+\b/),
           Reaction.new(name: :caw,
-                       emoji: 'caw:452209651912540160',
+                       emoji: 'caw:522999846043648010',
                        regex: /\bca+w+\b/),
           Reaction.new(name: :nya,
                        emoji: 'nya:434511854505558019',
