@@ -1,13 +1,14 @@
+
 sudo: required
 
-language: ruby
+language: minimal
 
 services:
   - docker
 
 before_install:
   - docker build -t ba .
-  - docker run ba rubocop
+  - docker run ba yarn lint
 
 after_success:
   - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
@@ -19,4 +20,4 @@ after_failure:
   - ./send.sh failure $WEBHOOK_URL
 
 script:
-  - docker run ba rspec
+  - docker run ba yarn test

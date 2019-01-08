@@ -1,0 +1,16 @@
+{
+  "name": "ba",
+  "version": "3.0",
+  "main": "./src/index.js",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  },
+  "scripts": {
+    "start": "node .",
+    "lint": "eslint .",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0"
+  }
+}

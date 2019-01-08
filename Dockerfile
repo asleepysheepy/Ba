@@ -1,8 +1,9 @@
-FROM ruby:latest
+FROM node:latest
 
 WORKDIR /usr/src/app
-COPY Gemfile* ./
-RUN bundle install
+COPY package.json ./
+COPY yarn.lock ./
+RUN yarn install
 COPY . .
 
-CMD bundle exec rake
+CMD yarn start

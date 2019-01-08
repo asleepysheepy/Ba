@@ -17,18 +17,12 @@ Ba adds reactions to message posted in Discord channels based on regex string ma
 
 * Git
 * Docker
-* docker-compose
 * Discord bot token
 
 ### Installing
 
 1) Clone this repository and cd into the directory `$ git clone https://github.com/flutterflies/Ba.git ba && cd ba`
-1) Add your token to `docker-compose.yml`
-1) Run the Docker image `$ docker-compose up`
+1) Build the Docker image `docker build -t ba_bot .`
+1) Run the Docker image `docker run -it -e TOKEN=YOUR_TOKEN_HERE ba_bot`
 
 **You can stop ba with ctrl+C
-
-## Running Tests
-
-Ba's tests can be run with: `$ docker build -t ba . && docker run ba rspec`
-
