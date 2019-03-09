@@ -280,4 +280,30 @@ RSpec.describe Ba::BaSupport::Reaction do
       end
     end
   end
+
+  describe 'Rat React' do
+    let(:react) { described_class.base_reactions[:rat] }
+
+    context 'with message squeak' do
+      it 'returns rat emoji when the message contains only squeak' do
+        expect(react.should_react('squeak')).to be_truthy
+      end
+
+      it 'returns rat emoji when the message squeak in a sentence' do
+        expect(react.should_react('some squeak some')).to be_truthy
+        expect(react.should_react('squeak some some')).to be_truthy
+        expect(react.should_react('some some squeak')).to be_truthy
+      end
+
+      it 'returns rat emoji when the message contains squeak with multiple Es and/or As' do
+        expect(react.should_react('squeeeeaaaaaak')).to be_truthy
+      end
+
+      it 'returns nothing when the string "squeak" is part of another word' do
+        expect(react.should_react('sosqueakme')).to be_falsey
+        expect(react.should_react('squeaksome')).to be_falsey
+        expect(react.should_react('somesqueak')).to be_falsey
+      end
+    end
+  end
 end

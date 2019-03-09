@@ -17,6 +17,7 @@ module Ba
 
       def self.reactions
         reactions = base_reactions
+        reactions.concat(february_reactions) if Time.now.month == 2
         reactions.concat(october_reactions) if Time.now.month == 10
 
         reactions
@@ -30,7 +31,16 @@ module Ba
           bear: Reaction.new('🐻', /\bbe+a+ry?\b/),
           caw: Reaction.new('caw:522999846043648010', /\bca+w+\b/),
           nya: Reaction.new('nya:434511854505558019', /\b(nya+[hn]?|me+ow)\b/),
+          rat: Reaction.new('🐀', /\bsque+a+k\b/),
           train: Reaction.new('🚄', /\bchoo+\s*choo+\b/)
+        }
+      end
+
+      def self.february_reactions
+        {
+          love: Reaction.new('😍', /\blo+ve+\b/),
+          heart: Reaction.new('💜', /\bhe+a+rt\b/),
+          kiss: Reaction.new('😘', /\bki+ss+\b/)
         }
       end
 
