@@ -30,10 +30,10 @@ module Ba
           ba: Reaction.new('🐑', /\bba+\b/),
           bear: Reaction.new('🐻', /\bbe+a+ry?\b/),
           caw: Reaction.new('caw:522999846043648010', /\bca+w+\b/),
+          cow: Reaction.new('🐮', /\bmoo+\b/),
           nya: Reaction.new('nya:434511854505558019', /\b(nya+[hn]?|me+ow)\b/),
           rat: Reaction.new('🐀', /\bsque+a+k\b/),
-          train: Reaction.new('🚄', /\bchoo+\s*choo+\b/),
-          cow: Reaction.new('🐮', /\bmoo+\b/)
+          train: Reaction.new('🚄', /\bchoo+\s*choo+\b/)
         }
       end
 

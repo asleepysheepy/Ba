@@ -306,4 +306,30 @@ RSpec.describe Ba::BaSupport::Reaction do
       end
     end
   end
+
+  describe 'Cow React' do
+    let(:react) { described_class.base_reactions[:cow] }
+
+    context 'with message moo' do
+      it 'returns cow emoji when the message contains only moo' do
+        expect(react.should_react('moo')).to be_truthy
+      end
+
+      it 'returns cow emoji when the message moo in a sentence' do
+        expect(react.should_react('some moo some')).to be_truthy
+        expect(react.should_react('moo some some')).to be_truthy
+        expect(react.should_react('some some moo')).to be_truthy
+      end
+
+      it 'returns cow emoji when the message contains moo with multiple Os' do
+        expect(react.should_react('moooooo')).to be_truthy
+      end
+
+      it 'returns nothing when the string "moo" is part of another word' do
+        expect(react.should_react('somoome')).to be_falsey
+        expect(react.should_react('moosome')).to be_falsey
+        expect(react.should_react('somemoo')).to be_falsey
+      end
+    end
+  end
 end
