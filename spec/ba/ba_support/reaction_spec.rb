@@ -332,4 +332,52 @@ RSpec.describe Ba::BaSupport::Reaction do
       end
     end
   end
+
+  describe 'Frog React' do
+    let(:react) { described_class.base_reactions[:frog] }
+
+    context 'with message ribbit' do
+      it 'returns frog emoji when the message contains only ribbit' do
+        expect(react.should_react('ribbit')).to be_truthy
+      end
+
+      it 'returns frog emoji when the message ribbit in a sentence' do
+        expect(react.should_react('some ribbit some')).to be_truthy
+        expect(react.should_react('ribbit some some')).to be_truthy
+        expect(react.should_react('some some ribbit')).to be_truthy
+      end
+
+      it 'returns frog emoji when the message contains ribbit with multiple Is' do
+        expect(react.should_react('riiiibbiiit')).to be_truthy
+      end
+
+      it 'returns nothing when the string "ribbit" is part of another word' do
+        expect(react.should_react('soribbitme')).to be_falsey
+        expect(react.should_react('ribbitsome')).to be_falsey
+        expect(react.should_react('someribbit')).to be_falsey
+      end
+    end
+
+    context 'with message croak' do
+      it 'returns frog emoji when the message contains only croak' do
+        expect(react.should_react('croak')).to be_truthy
+      end
+
+      it 'returns frog emoji when the message croak in a sentence' do
+        expect(react.should_react('some croak some')).to be_truthy
+        expect(react.should_react('croak some some')).to be_truthy
+        expect(react.should_react('some some croak')).to be_truthy
+      end
+
+      it 'returns frog emoji when the message contains croak with multiple Os and As' do
+        expect(react.should_react('croooaaak')).to be_truthy
+      end
+
+      it 'returns nothing when the string "croak" is part of another word' do
+        expect(react.should_react('socroakme')).to be_falsey
+        expect(react.should_react('croaksome')).to be_falsey
+        expect(react.should_react('somecroak')).to be_falsey
+      end
+    end
+  end
 end

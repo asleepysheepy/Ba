@@ -31,6 +31,7 @@ module Ba
           bear: Reaction.new('🐻', /\bbe+a+ry?\b/),
           caw: Reaction.new('caw:522999846043648010', /\bca+w+\b/),
           cow: Reaction.new('🐮', /\bmoo+\b/),
+          frog: Reaction.new('🐸', /\bri+bbi+t\b|\bcro+a+k\b/),
           nya: Reaction.new('nya:434511854505558019', /\b(nya+[hn]?|me+ow)\b/),
           rat: Reaction.new('🐀', /\bsque+a+k\b/),
           train: Reaction.new('🚄', /\bchoo+\s*choo+\b/)
