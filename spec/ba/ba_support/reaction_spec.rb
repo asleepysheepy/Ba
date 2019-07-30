@@ -409,7 +409,8 @@ RSpec.describe Ba::BaSupport::Reaction do
       it 'returns false the message contains wooloo with not enough Os' do
         expect(react.should_react('wolooooo')).to be_falsey
         expect(react.should_react('wolo')).to be_falsey
-        expect(react.should_react('wooooolo')).to befalsey
+        expect(react.should_react('wooooolo')).to be_falsey
+      end
     end
   end
 end
