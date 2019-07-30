@@ -380,7 +380,7 @@ RSpec.describe Ba::BaSupport::Reaction do
       end
     end
   end
-  
+
   describe 'Wooloo React' do
     let(:react) { described_class.base_reactions[:wooloo] }
 
@@ -405,7 +405,7 @@ RSpec.describe Ba::BaSupport::Reaction do
         expect(react.should_react('wooloosome')).to be_falsey
         expect(react.should_react('sowooloome')).to be_falsey
       end
-      
+
       it 'returns false the message contains wooloo with not enough Os' do
         expect(react.should_react('wolooooo')).to be_falsey
         expect(react.should_react('wolo')).to be_falsey
