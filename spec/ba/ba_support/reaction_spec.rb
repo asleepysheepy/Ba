@@ -380,4 +380,37 @@ RSpec.describe Ba::BaSupport::Reaction do
       end
     end
   end
+
+  describe 'Wooloo React' do
+    let(:react) { described_class.base_reactions[:wooloo] }
+
+    context 'with message wooloo' do
+      it 'returns true when the mesage contains only wooloo' do
+        expect(react.should_react('wooloo')).to be_truthy
+      end
+
+      it 'returns true when the message contains wooloo in a sentence' do
+        expect(react.should_react('some wooloo')).to be_truthy
+        expect(react.should_react('wooloo some')).to be_truthy
+      end
+
+      it 'returns true when the message contains wooloo with multiple Os' do
+        expect(react.should_react('wooooolooooooo')).to be_truthy
+        expect(react.should_react('woolooooooo')).to be_truthy
+        expect(react.should_react('woooooloo')).to be_truthy
+      end
+
+      it 'returns false when the string "wooloo" appears in another word' do
+        expect(react.should_react('somewooloo')).to be_falsey
+        expect(react.should_react('wooloosome')).to be_falsey
+        expect(react.should_react('sowooloome')).to be_falsey
+      end
+
+      it 'returns false the message contains wooloo with not enough Os' do
+        expect(react.should_react('wolooooo')).to be_falsey
+        expect(react.should_react('wolo')).to be_falsey
+        expect(react.should_react('wooooolo')).to be_falsey
+      end
+    end
+  end
 end

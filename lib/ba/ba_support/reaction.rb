@@ -34,7 +34,8 @@ module Ba
           frog: Reaction.new('🐸', /\bri+bbi+t\b|\bcro+a+k\b/),
           nya: Reaction.new('nya:434511854505558019', /\b(nya+[hn]?|me+ow)\b/),
           rat: Reaction.new('🐀', /\bsque+a+k\b/),
-          train: Reaction.new('🚄', /\bchoo+\s*choo+\b/)
+          train: Reaction.new('🚄', /\bchoo+\s*choo+\b/),
+          wooloo: Reaction.new('a:wooloo:605781427698663424', /\bwoo+loo+\b/)
         }
       end
 
