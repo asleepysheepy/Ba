@@ -413,4 +413,67 @@ RSpec.describe Ba::BaSupport::Reaction do
       end
     end
   end
+
+  describe 'Moon React' do
+    let(:react) { described_class.base_reactions[:moon] }
+
+    context 'with message nini' do
+      it 'returns true when the message contains only nini' do
+        expect(react.should_react('nini')).to be_truthy
+      end
+
+      it 'returns true when the message contains nini in a sentence' do
+        expect(react.should_react('some nini')).to be_truthy
+        expect(react.should_react('nini some')).to be_truthy
+      end
+
+      it 'returns true when the message contains nini with extra nis' do
+        expect(react.should_react('nininini')).to be_truthy
+      end
+
+      it 'returns false when the string "nini" appears in another word' do
+        expect(react.should_react('somenini')).to be_falsey
+        expect(react.should_react('ninisome')).to be_falsey
+        expect(react.should_react('soninime')).to be_falsey
+      end
+
+      it 'returns false when the message contains only one ni' do
+        expect(react.should_react('ni')).to be_falsey
+      end
+    end
+
+    context "with message g'night" do
+      it "returns true when the message contains only g'night" do
+        expect(react.should_react("g'night")).to be_truthy
+      end
+
+      it "returns true when the message contains g'night in a sentence" do
+        expect(react.should_react("some g'night")).to be_truthy
+        expect(react.should_react("g'night some")).to be_truthy
+      end
+
+      it 'returns false when the string "g\'night" appears in another word' do
+        expect(react.should_react("someg'night")).to be_falsey
+        expect(react.should_react("g'nightsome")).to be_falsey
+        expect(react.should_react("sog'nightme")).to be_falsey
+      end
+    end
+
+    context 'with message good night' do
+      it 'returns true when the message contains only good night' do
+        expect(react.should_react('good night')).to be_truthy
+      end
+
+      it 'returns true when the message contains good night in a sentence' do
+        expect(react.should_react('some good night')).to be_truthy
+        expect(react.should_react('good night some')).to be_truthy
+      end
+
+      it 'returns false when the string "good night" appears in another word/phrase' do
+        expect(react.should_react('somegood night')).to be_falsey
+        expect(react.should_react('good nightsome')).to be_falsey
+        expect(react.should_react('sogood nightme')).to be_falsey
+      end
+    end
+  end
 end
