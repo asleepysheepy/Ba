@@ -37,7 +37,7 @@ module Ba
           train: Reaction.new('🚄', /\bchoo+\s*choo+\b/),
           wooloo: Reaction.new('a:wooloo:605781427698663424', /\bwoo+loo+\b/),
           moon: Reaction.new(
-            'goodnight:600686474320412702',
+            'goodnight:612080527591342099',
             /\b((ni){2,}|g'night|good night)\b/
           )
         }
