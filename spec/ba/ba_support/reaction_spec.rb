@@ -476,6 +476,7 @@ RSpec.describe Ba::BaSupport::Reaction do
       end
     end
   end
+
   describe 'Honk React' do
     let(:react) { described_class.base_reactions[:honk] }
 
