@@ -476,4 +476,28 @@ RSpec.describe Ba::BaSupport::Reaction do
       end
     end
   end
+  describe 'Honk React' do
+    let(:react) { described_class.base_reactions[:honk] }
+
+    context 'with message honk' do
+      it 'returns true when the mesage contains only honk' do
+        expect(react.should_react('honk')).to be_truthy
+      end
+
+      it 'returns true when the message contains honk in a sentence' do
+        expect(react.should_react('some honk')).to be_truthy
+        expect(react.should_react('honk some')).to be_truthy
+      end
+
+      it 'returns true when the message contains honk with multiple Os' do
+        expect(react.should_react('hoooonk')).to be_truthy
+      end
+
+      it 'returns false when the string "honk" appears in another word' do
+        expect(react.should_react('somehonk')).to be_falsey
+        expect(react.should_react('honksome')).to be_falsey
+        expect(react.should_react('somehonksome')).to be_falsey
+      end
+    end
+  end
 end
