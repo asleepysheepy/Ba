@@ -32,15 +32,15 @@ module Ba
           caw: Reaction.new('caw:522999846043648010', /\bca+w+\b/),
           cow: Reaction.new('🐮', /\bmoo+\b/),
           frog: Reaction.new('🐸', /\bri+bbi+t\b|\bcro+a+k\b/),
-          nya: Reaction.new('nya:434511854505558019', /\b(nya+[hn]?|me+ow)\b/),
-          rat: Reaction.new('🐀', /\bsque+a+k\b/),
-          train: Reaction.new('🚄', /\bchoo+\s*choo+\b/),
-          wooloo: Reaction.new('a:wooloo:605781427698663424', /\bwoo+loo+\b/),
+          honk: Reaction.new('🦆', /\bho+nk\b/),
           moon: Reaction.new(
             'goodnight:612080527591342099',
             /\b((ni){2,}|g'night|good night)\b/
           ),
-          honk: Reaction.new('🦆', /\bho+nk\b/)
+          nya: Reaction.new('nya:434511854505558019', /\b(nya+[hn]?|me+ow)\b/),
+          rat: Reaction.new('🐀', /\bsque+a+k\b/),
+          train: Reaction.new('🚄', /\bchoo+\s*choo+\b/),
+          wooloo: Reaction.new('a:wooloo:605781427698663424', /\bwoo+loo+\b/)
         }
       end
 
