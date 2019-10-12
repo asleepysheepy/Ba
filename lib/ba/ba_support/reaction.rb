@@ -17,8 +17,8 @@ module Ba
 
       def self.reactions
         reactions = base_reactions
-        reactions.concat(february_reactions) if Time.now.month == 2
-        reactions.concat(october_reactions) if Time.now.month == 10
+        reactions.merge!(february_reactions) if Time.now.month == 2
+        reactions.merge!(october_reactions) if Time.now.month == 10
 
         reactions
       end
