@@ -32,7 +32,7 @@ module Ba
           caw: Reaction.new('caw:522999846043648010', /\bca+w+\b/),
           cow: Reaction.new('🐮', /\bmoo+\b/),
           frog: Reaction.new('🐸', /\bri+bbi+t\b|\bcro+a+k\b/),
-          honk: Reaction.new('🦆', /\bho+nk\b/),
+          honk: Reaction.new('honk:632708841620111390', /\bho+nk\b/),
           moon: Reaction.new(
             'goodnight:612080527591342099',
             /\b((ni){2,}|g'night|good night)\b/
