@@ -39,7 +39,8 @@ module Ba
           moon: Reaction.new(
             'goodnight:612080527591342099',
             /\b((ni){2,}|g'night|good night)\b/
-          )
+          ),
+          honk: Reaction.new('🦆', /\bho+nk\b/)
         }
       end
 
