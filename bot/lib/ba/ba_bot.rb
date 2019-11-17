@@ -8,7 +8,7 @@ module Ba
   BA_BOT = Discordrb::Commands::CommandBot.new(token: ENV['TOKEN'],
                                                prefix: '?ba ')
   INVITE_URL = "#{BA_BOT.invite_url}&permissions=2112"
-  REDIS = Redis.new url: ENV['REDIS_URL']
+  REDIS = Redis.new url: 'redis://localhost:6379'
 
   def self.load_module(name, path)
     new_module = Module.new
