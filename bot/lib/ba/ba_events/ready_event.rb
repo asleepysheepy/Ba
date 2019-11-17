@@ -5,7 +5,7 @@ module Ba
     module ReadyEvent
       extend Discordrb::EventContainer
       ready do |event|
-        event.bot.game = 'say ?ba help'
+        event.bot.listening = '?ba help'
       end
     end
   end
