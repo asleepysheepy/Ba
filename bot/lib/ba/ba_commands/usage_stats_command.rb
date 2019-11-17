@@ -94,6 +94,8 @@ module Ba
       end
 
       def self._emoji_for_embed(emoji)
+        return "<#{emoji}>" if emoji.start_with?('a:')
+
         emoji.include?(':') ? "<:#{emoji}>" : emoji
       end
     end
