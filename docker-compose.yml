@@ -8,13 +8,6 @@ services:
     image: redis:latest
     volumes:
       - redis:/data
-  bot:
-    build: .
-    restart: always
-    volumes:
-      - .:/usr/src/app
-    depends_on:
-      - redis
-    environment:
-      - REDIS_URL=redis://redis:6379
-      - TOKEN=
+    ports:
+      - '6379:6379'
+
