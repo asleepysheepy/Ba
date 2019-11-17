@@ -1,21 +1,26 @@
-name: Ruby
+name: Bot Build
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: Set up Ruby 2.6
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.6.x
-    - name: Build and test with Rake
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        cd bot
+        bundle install --jobs 4 --retry 3
+    - name: Lint
       run: |
         cd bot
-        gem install bundler
-        bundle install --jobs 4 --retry 3
+        bundle exec rubocop
+    - name: Test Bot
+      run: |
+        cd bot
         bundle exec rspec
