@@ -5,6 +5,7 @@ volumes:
 
 services:
   redis:
+    command: redis-server --requirepass ba_password
     image: redis:latest
     volumes:
       - redis:/data
