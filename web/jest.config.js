@@ -1,4 +1,5 @@
 module.exports = {
+  setupFilesAfterEnv: ['./test/setup-tests.js'],
   resetMocks: true,
   restoreMocks: true,
   testMatch: ['**/test/**/*-test.js'],
