@@ -13,6 +13,7 @@ jobs:
         ruby-version: 2.6.x
     - name: Install dependencies
       run: |
+        sudo apt-get install libpq-dev
         gem install bundler
         cd bot
         bundle install --jobs 4 --retry 3
