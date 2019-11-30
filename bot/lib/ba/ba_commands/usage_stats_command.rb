@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../ba_support/reaction'
+require_relative '../models/emoji'
+require_relative '../models/reaction'
 
 module Ba
   module BaCommands
@@ -26,12 +27,11 @@ module Ba
         results = {
           name: 'Ba global usage stats',
           description: 'Usage statistics for all users across all servers',
-          total: _reaction_count('global_reacts')
+          total: Ba::Models::Reaction.all.count
         }
 
-        Ba::BaSupport::Reaction.reactions.each_key do |name|
-          results.store(name,
-                        _reaction_count("global_#{name}"))
+        Ba::Models::Emoji.emojis.each_key do |name|
+          results.store(name, Ba::Models::Reaction.where(emoji: name).count)
         end
 
         results
@@ -41,12 +41,11 @@ module Ba
         results = {
           name: 'Ba server usage stats',
           description: 'Usage statistics for all users on this server',
-          total: _reaction_count("#{server_id}_reacts")
+          total: Ba::Models::Reaction.where(server_id: server_id).count
         }
 
-        Ba::BaSupport::Reaction.reactions.each_key do |name|
-          results.store(name,
-                        _reaction_count("#{server_id}_#{name}"))
+        Ba::Models::Emoji.emojis.each_key do |name|
+          results.store(name, Ba::Models::Reaction.where(server_id: server_id, emoji: name).count)
         end
 
         results
@@ -56,12 +55,11 @@ module Ba
         results = {
           name: 'Ba server usage stats',
           description: "Usage statistics for #{user.distinct} on all servers",
-          total: _reaction_count("#{user.id}_reacts")
+          total: Ba::Models::Reaction.where(user_id: user.id).count
         }
 
-        Ba::BaSupport::Reaction.reactions.each_key do |name|
-          results.store(name,
-                        _reaction_count("#{user.id}_#{name}"))
+        Ba::Models::Emoji.emojis.each_key do |name|
+          results.store(name, Ba::Models::Reaction.where(user_id: user.id, emoji: name).count)
         end
 
         results
@@ -80,17 +78,12 @@ module Ba
           embed.footer = Ba::BaSupport::EmbedDefaults.embed_footer
 
           embed.add_field name: 'Total', value: stats[:total]
-          Ba::BaSupport::Reaction.reactions.each do |name, reaction|
-            embed.add_field(name: _emoji_for_embed(reaction.emoji),
+          Ba::Models::Emoji.emojis.each do |name, emoji|
+            embed.add_field(name: _emoji_for_embed(emoji.emote),
                             value: stats[name],
                             inline: true)
           end
         end
-      end
-
-      def self._reaction_count(reaction_name)
-        stat = REDIS.get reaction_name
-        stat.nil? ? 0 : stat
       end
 
       def self._emoji_for_embed(emoji)

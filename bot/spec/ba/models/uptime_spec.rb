@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'ba/ba_support/uptime'
+require 'ba/models/uptime'
 
-RSpec.describe Ba::BaSupport::Uptime do
+RSpec.describe Ba::Models::Uptime do
   let(:start_time) { Time.new 2018, 6, 10 } # 2018-06-10 00:00:00
   let(:current_time) { Time.new 2018, 6, 30, 15, 14, 47 } # 2018-06-30 15:14:47
 

@@ -15,7 +15,7 @@ Metrics/MethodLength:
   Exclude:
     - 'lib/ba/ba_commands/usage_stats_command.rb'
     - 'lib/ba/ba_commands/help_command.rb'
-    - 'lib/ba/ba_support/reaction.rb'
+    - 'lib/ba/models/emoji.rb'
 
 Metrics/BlockLength:
   Exclude:
@@ -29,4 +29,4 @@ Metrics/LineLength:
 
 RSpec/MultipleExpectations:
   Exclude:
-    - 'spec/ba/ba_support/reaction_spec.rb'
+    - 'spec/ba/models/emoji_spec.rb'

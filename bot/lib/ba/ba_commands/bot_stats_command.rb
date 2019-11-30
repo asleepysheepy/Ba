@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../ba_support/uptime'
+require_relative '../models/uptime'
 
 module Ba
   module BaCommands
@@ -34,7 +34,7 @@ module Ba
         {
           num_servers: BA_BOT.servers.count,
           num_users: BA_BOT.users.count,
-          up_time: Ba::BaSupport::Uptime.new(TIME_STARTED, Time.now).humanize
+          up_time: Ba::Models::Uptime.new(TIME_STARTED, Time.now).humanize
         }
       end
     end
