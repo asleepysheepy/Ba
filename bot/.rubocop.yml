@@ -23,8 +23,8 @@ Metrics/BlockLength:
     - 'lib/ba/ba_commands/usage_stats_command.rb'
 
 Metrics/LineLength:
+  Max: 100
   Exclude:
-    - 'spec/ba/ba_support/reaction_spec.rb'
     - 'lib/ba/ba_commands/help_command.rb'
 
 RSpec/MultipleExpectations:
