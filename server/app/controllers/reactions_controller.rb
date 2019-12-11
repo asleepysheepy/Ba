@@ -1,2 +1,0 @@
-class ReactionsController < ApplicationController
-end
