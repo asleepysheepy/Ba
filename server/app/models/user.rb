@@ -5,11 +5,11 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: %i[discord]
 
   def avatar_url
-    "https://cdn.discordapp.com/avatars/#{snowflake}/#{avatar_hash}.png"
+    format = avatar_id.start_with?('a_') ? 'gif' : 'png'
+    Discordrb::API::User.avatar_url snowflake, avatar_hash, format
   end
 
   def default_avatar_url
-    index = discriminator.to_i % 5
-    "https://cdn.discordapp.com/embed/avatars/#{index}.png"
+    Discordrb::API::User.default_avatar snowflake
   end
 end
