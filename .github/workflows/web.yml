@@ -21,7 +21,11 @@ jobs:
       run: |
         cd web
         bundle exec rubocop
+    - name: Start Docker
+      run: |
+        docker-compose up -d
     - name: Test Web
       run: |
         cd web
+        bundle exec rails db:prepare
         bundle exec rspec
