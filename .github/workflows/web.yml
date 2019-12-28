@@ -1,0 +1,27 @@
+name: Web Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.x
+    - name: Install dependencies
+      run: |
+        sudo apt-get install libpq-dev
+        gem install bundler
+        cd web
+        bundle install --jobs 4 --retry 3
+    - name: Lint
+      run: |
+        cd web
+        bundle exec rubocop
+    - name: Test Web
+      run: |
+        cd web
+        bundle exec rspec
