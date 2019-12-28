@@ -6,6 +6,7 @@
 [![Add to server](https://img.shields.io/badge/Add%20to%20your-server-7289DA.svg?style=flat-square)](https://discordapp.com/oauth2/authorize?&client_id=432729863820935172&scope=bot&permissions=2112)
 [![Join Support Server](https://img.shields.io/badge/Join%20the%20support-Discord-7289DA.svg?style=flat-square)](https://discord.gg/GMSFMpF)
 [![Bot Build Status](https://github.com/flutterflies/ba/workflows/Bot%20Build/badge.svg)](https://github.com/flutterflies/ba/actions)
+[![Web Build Status](https://github.com/flutterflies/ba/workflows/Web%20Build/badge.svg)](https://github.com/flutterflies/ba/actions)
 
 ## Add emoji reactions to discord messages
 
