@@ -4,6 +4,10 @@ on: [push, pull_request]
 
 jobs:
   build:
+    env:
+      BASE_URL: 'http://localhost:3000'
+      DISCORD_ID: 'FAKE_DISCORD_CLIENT_ID'
+      DISCORD_SECRET: 'FAKE_DISCORD_CLIENT_SECRET'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
