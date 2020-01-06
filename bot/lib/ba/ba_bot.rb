@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'dotenv/load'
+
 require 'active_record'
 require 'discordrb'
 require_relative 'ba_support/embed_defaults'
@@ -8,7 +10,6 @@ module Ba
   BA_BOT = Discordrb::Commands::CommandBot.new(token: ENV['TOKEN'], prefix: '?ba ')
   INVITE_URL = "#{BA_BOT.invite_url}&permissions=2112"
 
-  ENV['DATABASE_URL'] ||= 'postgres://postgres_user:postgres_pass@localhost/ba_development?pool=5'
   ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
   def self.load_module(name, path)

@@ -28,6 +28,7 @@ GEM
       rest-client (>= 2.1.0.rc1)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
     event_emitter (0.2.6)
     ffi (1.10.0)
     http-accept (1.7.0)
@@ -109,6 +110,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   discordrb
+  dotenv
   pg
   pry-byebug
   rake

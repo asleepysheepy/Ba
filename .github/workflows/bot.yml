@@ -4,6 +4,9 @@ on: [push, pull_request]
 
 jobs:
   build:
+    env:
+      TOKEN: 'completely real token'
+      DATABASE_URL: 'postgres://postgres_user:postgres_pass@localhost/ba_development?pool=5'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
