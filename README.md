@@ -10,7 +10,7 @@
 
 ## Add emoji reactions to discord messages
 
-Ba adds reactions to message posted in Discord channels based on regex string matching
+Ba adds reactions to messages posted in Discord channels, based upon the text within them, with matching regexes.
 
 ## Running Ba
 
@@ -19,7 +19,7 @@ Ba adds reactions to message posted in Discord channels based on regex string ma
 * Git
 * Docker
 * docker-compose
-* Discord bot token
+* A Discord bot token
 * Ruby 2.6
 * Bundler
 
@@ -27,12 +27,20 @@ Ba adds reactions to message posted in Discord channels based on regex string ma
 
 1) Clone this repository and cd into the directory `$ git clone https://github.com/flutterflies/Ba.git ba && cd ba`
 1) Start docker `$ docker-compose up -d`
-1) Change into the bot directory `$cd bot`
-1) Start the bot `$ TOKEN="your token here" bundle exec rake`
+1) Change into the bot directory `$ cd bot`
+1) Start your own Ba using `$ TOKEN="your token here" bundle exec rake`
+1) Use `?ba help` within Discord to see their available commands!
 
-**You can stop ba with ctrl+C
+**You can stop Ba with ctrl+C!**
 
 ## Running Tests
 
 Ba's tests can be run with: `$ cd bot && bundle exec rspec`
 
+## Ba's reactions
+
+`/\barf+\b/` - ![Arf](https://i.imgur.com/c0wyf8p.png)
+
+`/\bba+\b/` - 🐑
+
+_[List May Be Incomplete As More Are Added, See `?ba usage_stats`.]_
