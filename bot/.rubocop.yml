@@ -1,32 +1,24 @@
 require: rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
 
 Style/Documentation:
   Enabled: false
 
 Metrics/AbcSize:
   Exclude:
-    - 'lib/ba/ba_commands/usage_stats_command.rb'
-    - 'lib/ba/ba_commands/help_command.rb'
+    - 'lib/ba/utils/embeds.rb'
 
 Metrics/MethodLength:
-  Exclude:
-    - 'lib/ba/ba_commands/usage_stats_command.rb'
-    - 'lib/ba/ba_commands/help_command.rb'
-    - 'lib/ba/models/emoji.rb'
+  Max: 15
 
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
-    - 'lib/ba/ba_commands/usage_stats_command.rb'
 
 Metrics/LineLength:
-  Max: 100
-  Exclude:
-    - 'lib/ba/ba_commands/help_command.rb'
+  Max: 120
 
 RSpec/MultipleExpectations:
-  Exclude:
-    - 'spec/ba/models/emoji_spec.rb'
+  Enabled: false

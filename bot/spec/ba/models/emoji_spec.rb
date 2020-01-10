@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 require 'ba/models/emoji'
-require 'pry-byebug'
 
 RSpec.describe Ba::Models::Emoji do
+  let(:emoji) { described_class.new(name: emoji_name, regex: Ba::EmojiConfig::Regex::ALL[emoji_name]) }
+
   describe 'Ba Emoji' do
-    let(:emoji) { described_class.emojis[:ba] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::BA }
 
     context 'with message ba' do
       it 'returns true when the mesage contains only ba' do
@@ -30,7 +31,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Nya emoji' do
-    let(:emoji) { described_class.emojis[:nya] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::NYA }
 
     context 'with message nya' do
       it 'returns true when the mesage contains only nya' do
@@ -97,7 +98,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Awoo emoji' do
-    let(:emoji) { described_class.emojis[:awoo] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::AWOO }
 
     context 'with message awoo' do
       it 'returns awoo emoji when the message contains only awoo' do
@@ -149,7 +150,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Arf emoji' do
-    let(:emoji) { described_class.emojis[:arf] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::ARF }
 
     context 'with message arf' do
       it 'returns arf emoji when the mesage contains only arf' do
@@ -174,7 +175,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Train emoji' do
-    let(:emoji) { described_class.emojis[:train] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::TRAIN }
 
     context 'with message choo choo' do
       it 'returns train emoji when the mesage contains only choo choo with various spacings' do
@@ -209,7 +210,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Bear emoji' do
-    let(:emoji) { described_class.emojis[:bear] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::BEAR }
 
     context 'with message bear' do
       it 'returns bear emoji when the message contains only bear' do
@@ -257,7 +258,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Caw emoji' do
-    let(:emoji) { described_class.emojis[:caw] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::CAW }
 
     context 'with message caw' do
       it 'returns caw emoji when the message contains only caw' do
@@ -283,7 +284,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Rat emoji' do
-    let(:emoji) { described_class.emojis[:rat] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::RAT }
 
     context 'with message squeak' do
       it 'returns rat emoji when the message contains only squeak' do
@@ -309,7 +310,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Cow emoji' do
-    let(:emoji) { described_class.emojis[:cow] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::COW }
 
     context 'with message moo' do
       it 'returns cow emoji when the message contains only moo' do
@@ -335,7 +336,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Frog emoji' do
-    let(:emoji) { described_class.emojis[:frog] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::FROG }
 
     context 'with message ribbit' do
       it 'returns frog emoji when the message contains only ribbit' do
@@ -383,7 +384,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Wooloo emoji' do
-    let(:emoji) { described_class.emojis[:wooloo] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::WOOLOO }
 
     context 'with message wooloo' do
       it 'returns true when the mesage contains only wooloo' do
@@ -416,7 +417,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Moon emoji' do
-    let(:emoji) { described_class.emojis[:moon] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::MOON }
 
     context 'with message nini' do
       it 'returns true when the message contains only nini' do
@@ -479,7 +480,7 @@ RSpec.describe Ba::Models::Emoji do
   end
 
   describe 'Honk emoji' do
-    let(:emoji) { described_class.emojis[:honk] }
+    let(:emoji_name) { Ba::EmojiConfig::Names::HONK }
 
     context 'with message honk' do
       it 'returns true when the mesage contains only honk' do
