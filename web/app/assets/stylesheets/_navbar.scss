@@ -1,0 +1,108 @@
+@mixin nav-link-text {
+  color: $themeWhite;
+  letter-spacing: .094rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  &:hover {
+    color: $themeBlurple;
+  }
+}
+
+.ba-navbar {
+  background-color: $themeNearBlack;
+  border-bottom: .125rem solid $themeBlurple;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: .25rem;
+  padding-top: .25rem;
+  width: 100vw;
+  @media (min-width: $mdBreakpoint) {
+    align-items: center;
+    justify-content: center;
+  }
+  @media (min-width: $lgBreakpoint) {
+    flex-direction: row;
+    padding-bottom: .25rem;
+    padding-top: .25rem;
+  }
+}
+
+.ba-navbar-logo {
+  align-items: center;
+  display: flex;
+}
+
+.ba-navbar-hamburger-icon {
+  @include nav-link-text;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  margin: 0 1.5rem;
+  padding: 0;
+  @media (min-width: $mdBreakpoint) {
+    display: none;
+  }
+}
+
+.ba-navbar-image {
+  padding-top: .25rem;
+  width: 3rem;
+}
+
+.ba-navbar-link {
+  display: none;
+  text-align: left;
+  @media (min-width: $mdBreakpoint) {
+    @include nav-link-text;
+    display: inherit;
+    margin: 0.5rem;
+    text-align: center;
+  }
+}
+
+.ba-navbar-list {
+  align-items: baseline;
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @media (min-width: $mdBreakpoint) {
+    display: flex;
+    max-width: 675px;
+  }
+  @media (min-width: $lgBreakpoint) {
+    max-width: initial;
+  }
+}
+
+.ba-navbar-title {
+  @include nav-link-text;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.5rem;
+}
+
+.nav-toggle {
+  @media (max-width: $mdBreakpoint) {
+    .ba-navbar-list {
+      align-items: stretch;
+      background-color: $themeNearBlack;
+      border-bottom: .125rem solid $themeBlurple;
+      box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      margin-top: 3.75rem;
+      min-width: 100vw;
+      padding-top: 1rem;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .ba-navbar-link {
+      @include nav-link-text;
+      border-top: 1px solid $themeBlurple;
+      display: block;
+      padding: 0.75rem 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<nav class="ba-navbar" data-controller="navbar" data-target="navbar.nav">
+  <div class="ba-navbar-logo">
+    <button class="ba-navbar-hamburger-icon" data-action="click->navbar#toggleNav"><%= fa_icon('bars') %></button>
+    <%= link_to(image_tag('ba-icon', alt: 'Ba avatar', class: 'ba-navbar-image'), root_path) %>
+    <%= link_to('Ba', root_path, class: 'ba-navbar-title') %>
+  </div>
+  <ul class="ba-navbar-list">
+    <li><a class="ba-navbar-link" href="https://discordapp.com/oauth2/authorize?&client_id=432729863820935172&scope=bot&permissions=2112">Add ba to your server</a></li>
+    <li><a class="ba-navbar-link" href="https://discord.gg/FDndu3p">Join the dev server</a></li>
+    <li><a class="ba-navbar-link" href="https://github.com/flutterflies/ba">Fork me on Github</a></li>
+    <li><a class="ba-navbar-link" href="https://www.ko-fi.com/a_sleepy_sheepy">Support me on ko-fi</a></li>
+  </ul>
+</nav>

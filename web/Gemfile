@@ -10,6 +10,7 @@ gem 'dotenv-rails', groups: %i[development test], require: 'dotenv/rails-now'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
+gem 'font_awesome5_rails'
 gem 'jbuilder', '~> 2.7'
 gem 'omniauth-discord'
 gem 'pg', '>= 0.18', '< 2.0'
