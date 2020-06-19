@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
-require 'active_model'
 require 'ba/emoji_config'
 
 module Ba
   module Models
     class Emoji
-      include ActiveModel::Model
-      attr_accessor :emote, :name, :regex
+      attr_reader :emote, :name, :regex
+
+      def initialize(emote:, name:, regex:)
+        @emote = emote
+        @name = name
+        @regex = regex
+      end
 
       def should_react?(message)
         message =~ @regex

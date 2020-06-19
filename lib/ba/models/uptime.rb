@@ -1,5 +1,7 @@
 # frozen_string_literal: false
 
+require "active_support/core_ext/string/inflections"
+
 module Ba
   module Models
     class Uptime
