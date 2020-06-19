@@ -16,8 +16,6 @@ Ba adds reactions to messages posted in Discord channels, based upon the text wi
 ### Requirements
 
 * Git
-* Docker
-* docker-compose
 * A Discord bot token
 * Ruby 2.6
 * Bundler
@@ -25,7 +23,6 @@ Ba adds reactions to messages posted in Discord channels, based upon the text wi
 ### Installing
 
 1) Clone this repository and cd into the directory `$ git clone https://github.com/flutterflies/Ba.git ba && cd ba`
-1) Start docker `$ docker-compose up -d`
 1) Start your own Ba using `$ TOKEN="your token here" bundle exec rake`
 1) Use `?ba help` within Discord to see their available commands!
 

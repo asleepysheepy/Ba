@@ -3,7 +3,13 @@
 require 'ba/models/emoji'
 
 RSpec.describe Ba::Models::Emoji do
-  let(:emoji) { described_class.new(name: emoji_name, regex: Ba::EmojiConfig::Regex::ALL[emoji_name]) }
+  let(:emoji) do
+    described_class.new(
+      emote: Ba::EmojiConfig::Emote::ALL[emoji_name],
+      name: emoji_name,
+      regex: Ba::EmojiConfig::Regex::ALL[emoji_name]
+    )
+  end
 
   describe 'Ba Emoji' do
     let(:emoji_name) { Ba::EmojiConfig::Names::BA }
