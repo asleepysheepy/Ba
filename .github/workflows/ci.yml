@@ -1,0 +1,21 @@
+name: CI Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.6
+      uses: ruby/setup-ruby@v1
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+    - name: Lint
+      run: |
+        bundle exec rubocop
+    - name: Run Tests
+      run: |
+        bundle exec rspec
