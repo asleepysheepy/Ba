@@ -9,6 +9,7 @@ AllCops:
     - "node_modules/**/*"
     - "db/schema.rb"
     - "vendor/**/*"
+    - "lib/tasks/auto_annotate_models.rake"
   NewCops: enable
 
 Style/Documentation:
@@ -21,10 +22,10 @@ RSpec/NestedGroups:
   Enabled: false
 
 Metrics/AbcSize:
-  Exclude:
-    - 'db/migrate/**/*'
+  Enabled: false
 
 Metrics/MethodLength:
+  Max: 15
   Exclude:
     - 'db/migrate/**/*'
 
@@ -34,3 +35,5 @@ Metrics/BlockLength:
 
 Layout/LineLength:
   Max: 120
+  Exclude: 
+    - 'db/seeds.rb'
