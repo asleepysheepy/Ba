@@ -12,24 +12,7 @@ Ba adds reactions to messages posted in Discord channels, based upon the text wi
 
 ## Running Ba
 
-### Requirements
-
-* Git
-* A Discord bot token
-* Ruby 2.6
-* Bundler
-
-### Installing
-
-1) Clone this repository and cd into the directory `$ git clone https://github.com/asleepysheepy/Ba.git ba && cd ba`
-1) Start your own Ba using `$ TOKEN="your token here" bundle exec rake`
-1) Use `?ba help` within Discord to see their available commands!
-
-**You can stop Ba with ctrl+C!**
-
-## Running Tests
-
-Ba's tests can be run with: `$ bundle exec rspec`
+[Server/Bot](https://github.com/asleepysheepy/Ba/blob/master/server/README.md#Running)
 
 ## Ba's reactions
 

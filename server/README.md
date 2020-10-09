@@ -1,24 +1,21 @@
-# README
+# Ba Server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Server Build](https://github.com/asleepysheepy/Ba/workflows/Server%20Build/badge.svg)](https://github.com/asleepysheepy/Ba/actions)
 
-Things you may want to cover:
+## Running
 
-* Ruby version
+### Requirements
 
-* System dependencies
+* Ruby 2.6
+* Dockker & Docker Compose
+* Bundler 2.1
 
-* Configuration
+### Process
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone the repo `$ git clone https://github.com/flutterflies/Ba.git ba && cd ba/server`
+1. Install dependencies `$ bundle install`
+1. Create a copy of `.env.sample` to `.env`. `$ cp .env.sample .env`
+1. Add your bot token to `.env`
+1. Start up the database `$ docker-compose up`
+1. Setup the database `$ bundle exec rails db:setup`
+1. Start the server `$ bundle exec rails server`
