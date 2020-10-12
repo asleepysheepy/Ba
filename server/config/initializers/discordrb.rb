@@ -21,8 +21,12 @@ prefix_proc = proc do |message|
   message.content[prefix.size..] if message.content.start_with?(prefix)
 end
 
+intents = [
+  Discordrb::INTENTS[:server_messages]
+]
+
 bot_token = ENV["DISCORD_BOT_TOKEN"]
-bot = Discordrb::Commands::CommandBot.new(token: bot_token, prefix: prefix_proc)
+bot = Discordrb::Commands::CommandBot.new(token: bot_token, prefix: prefix_proc, intents: intents)
 
 bot.include! BaEvents
 bot.include! BaCommands
