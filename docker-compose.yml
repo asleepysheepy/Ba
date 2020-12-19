@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    env_file: .env
