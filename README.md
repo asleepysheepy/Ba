@@ -83,7 +83,8 @@ A list of reactions can be found [here](https://github.com/asleepysheepy/Ba/wiki
 * [ESLint](https://eslint.org/) - Linting
 * [PostgreSQL](https://www.postgresql.org/) - Persistent storage
 * [TypeORM](https://typeorm.io/#/) - Database Interaction
-* [TypeORM Seeding](https://github.com/w3tecch/typeorm-seeding) - Seeding database data 
+* [TypeORM Seeding](https://github.com/w3tecch/typeorm-seeding) - Seeding database data
+* [Winston](https://github.com/winstonjs/winston) - Log management
 
 ## Contributing to Ba
 
