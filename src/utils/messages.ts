@@ -17,8 +17,9 @@ export const MessageUtils = {
     message.channel.send(response)
   },
 
-  handleReactions: async (message: Message): Promise<void> => {
+  handleReactions: async (message: Message, client: Client): Promise<void> => {
     if (message.content.startsWith(COMMAND_PREFIX)) { return }
+    if (client.user && client.user.id === message.author.id) { return }
 
     const emotes = await Emote.forToday()
 
