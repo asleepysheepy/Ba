@@ -1,3 +1,4 @@
+import * as CommandHandler from './commands/utils/command-handler'
 import events from './events'
 import { Client } from 'discord.js'
 import { Logger } from './utils/logger'
@@ -14,6 +15,8 @@ function setupEvents(client: Client): void {
     Logger.info(`Registering an handler for ${event.eventName} events.`)
     client.on(event.eventName, handle)
   })
+
+  client.on('message', (message) => CommandHandler.handleCommand(message))
 }
 
 /**

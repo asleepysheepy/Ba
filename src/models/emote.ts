@@ -93,6 +93,15 @@ class Emote extends BaseEntity {
   }
 
   /**
+   * Formats the emoji for use in discord messages
+   */
+  formattedEmoji(): string {
+    if ( this.emoji.startsWith('a:')) { return `<${this.emoji}>` }
+
+    return this.emoji.includes(':') ? `<:${this.emoji}>` : this.emoji
+  }
+
+  /**
    * Listener for the beforeInsert event.
    *
    * Sets the created at timestamp.
