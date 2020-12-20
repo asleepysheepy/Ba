@@ -1,3 +1,4 @@
+import { COMMAND_PREFIX } from '../commands'
 import { Client, Message } from 'discord.js'
 import { Emote } from '../models/emote'
 import { createEmbed } from './embeds'
@@ -17,6 +18,8 @@ export const MessageUtils = {
   },
 
   handleReactions: async (message: Message): Promise<void> => {
+    if (message.content.startsWith(COMMAND_PREFIX)) { return }
+
     const emotes = await Emote.forToday()
 
     emotes.forEach((emote) => {

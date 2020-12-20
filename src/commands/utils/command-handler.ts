@@ -1,9 +1,7 @@
-import commands from '../'
+import commands, { COMMAND_PREFIX } from '../'
 import { Command } from './command'
 import { Logger } from '../../utils/logger'
 import { Message } from 'discord.js'
-
-const COMMAND_PREFIX = '?ba '
 
 const findCommand = (commandName: string): Command | undefined => {
   return commands.find((c) => c.name === commandName || c.aliases?.includes(commandName))
