@@ -1,12 +1,24 @@
-import commands, { COMMAND_PREFIX } from '../'
 import { Command } from './command'
+import { Commands } from '../'
 import { Logger } from '../../utils/logger'
 import { Message } from 'discord.js'
 
+/**
+ * Looks up a command object from a given string.
+ *
+ * @param commandName the name (or alias) of the command to look up
+ */
 const findCommand = (commandName: string): Command | undefined => {
-  return commands.find((c) => c.name === commandName || c.aliases?.includes(commandName))
+  return Commands.commandList.find((c) => c.name === commandName || c.aliases?.includes(commandName))
 }
 
+/**
+ * Checks that the correct number of arguments was passed to the command.
+ *
+ * @param command The command being executed.
+ * @param args The arguments passed to the command
+ * @param message The message object with the command
+ */
 const checkArgs = (command: Command, args: Array<string>, message: Message): boolean => {
   if (command.minArgs) {
     if (args.length < command.minArgs) {
@@ -25,11 +37,16 @@ const checkArgs = (command: Command, args: Array<string>, message: Message): boo
   return true
 }
 
-export const handleCommand = async (message: Message): Promise<void> => {
-  if (!message.content.startsWith(COMMAND_PREFIX)) { return }
+/**
+ * Determines a command from a given message and executes it.
+ *
+ * @param message The message which comtains the command.
+ */
+const handleCommand = async (message: Message): Promise<void> => {
+  if (!message.content.startsWith(Commands.COMMAND_PREFIX)) { return }
   if (message.author.bot) { return }
 
-  const args = message.content.slice(COMMAND_PREFIX.length).split(/ +/)
+  const args = message.content.slice(Commands.COMMAND_PREFIX.length).split(/ +/)
   const commandName = args.shift()?.toLowerCase()
   if (!commandName) { return }
 
@@ -44,4 +61,8 @@ export const handleCommand = async (message: Message): Promise<void> => {
     message.channel.send(`An error ocurred executing command: ${commandName}`)
     Logger.error(`Attempted to exectue the command ${commandName} but the following error occured: ${error}`)
   }
+}
+
+export const CommandHandler = {
+  handleCommand,
 }

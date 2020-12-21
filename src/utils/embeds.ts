@@ -1,6 +1,12 @@
 import { Client, MessageEmbed, User } from 'discord.js'
 
-export async function createEmbed(author: User, client: Client): Promise<MessageEmbed> {
+/**
+ * Creates a new message embed object and set several default values.
+ *
+ * @param author The author the message being replied to.
+ * @param client The bot's client instance
+ */
+const createEmbed = async (author: User, client: Client): Promise<MessageEmbed> => {
   const embed = new MessageEmbed()
     .setColor('#17b6d6')
     .setURL('https://github.com/asleepysheepy/Ba')
@@ -17,4 +23,8 @@ export async function createEmbed(author: User, client: Client): Promise<Message
   if (sheepyAvatar) { embed.setFooter('Ba is crafted with love by Sleepy Sheepy#0179', sheepyAvatar) }
 
   return embed
+}
+
+export const EmbedUtils = {
+  createEmbed,
 }

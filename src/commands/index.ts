@@ -1,7 +1,18 @@
 import { EmotesCommand } from './emotes'
 
-export const COMMAND_PREFIX = '?ba '
+/**
+ * The prefix used for executing commands.
+ */
+const COMMAND_PREFIX = '?ba '
 
-export default [
+/**
+ * A list of all commands.
+ */
+const commandList = [
   EmotesCommand,
 ]
+
+export const Commands = {
+  COMMAND_PREFIX,
+  commandList,
+}

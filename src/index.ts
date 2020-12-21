@@ -1,6 +1,6 @@
-import * as CommandHandler from './commands/utils/command-handler'
-import events from './events'
 import { Client } from 'discord.js'
+import { CommandHandler } from './commands/utils/command-handler'
+import { Events } from './events'
 import { Logger } from './utils/logger'
 
 /**
@@ -9,7 +9,7 @@ import { Logger } from './utils/logger'
  * @param client - The Discord.js client instance
  */
 function setupEvents(client: Client): void {
-  events.forEach((event) => {
+  Events.eventsList.forEach((event) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handle = async (...args: Array<any>) => await event.handle(...args, client)
     Logger.info(`Registering an handler for ${event.eventName} events.`)

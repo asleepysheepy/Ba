@@ -2,8 +2,12 @@ import { MessageEvent } from './message'
 import { MessageUpdateEvent } from './message-update'
 import { ReadyEvent } from './ready'
 
-export default [
+const eventsList = [
   MessageEvent,
   MessageUpdateEvent,
   ReadyEvent,
 ]
+
+export const Events = {
+  eventsList,
+}

@@ -2,6 +2,9 @@ import { Command } from './utils/command'
 import { Emote } from '../models/emote'
 import { Message } from 'discord.js'
 
+/**
+ * Prints a list of all emotes which are active for today.
+ */
 export const EmotesCommand: Command = {
   name: 'emotes',
   aliases: ['reacts', 'reactions'],
