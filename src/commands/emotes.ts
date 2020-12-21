@@ -12,7 +12,7 @@ export const EmotesCommand: Command = {
 
     let returnMessage = 'Today\'s active emotes are:\n'
     emotes.forEach((emote) => {
-      returnMessage += `- ${emote.name}: ${emote.formattedEmoji()}\n`
+      returnMessage += `• ${emote.formattedEmoji()} (\`${emote.name}\`)\n`
     })
 
     message.channel.send(returnMessage)
