@@ -1,0 +1,36 @@
+name: Release Bot
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Build Bot"]
+    branches: [main]
+    types: 
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install doctl
+      uses: digitalocean/action-doctl@v2
+      with:
+        token: ${{ secrets.DO_PAT }}
+    - name: Run terraform
+      run: cd ./terraform && terraform init && terraform plan -out=ba-droplet.plan && terraform apply ba-droplet.plan
+    - name: Clone, install deps, and start Ba
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          git clone git@github.com:asleepysheepy/Ba
+          yarn install
+          yarn build
+          yarn start
