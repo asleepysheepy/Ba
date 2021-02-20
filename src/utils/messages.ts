@@ -1,4 +1,4 @@
-import { Client, Message } from 'discord.js'
+import { Client, Message, PermissionResolvable } from 'discord.js'
 import { Commands } from '../commands'
 import { EmbedUtils } from './embeds'
 import { Emote } from '../models/emote'
@@ -15,11 +15,18 @@ const handleMention = async (message: Message, client: Client): Promise<void> =>
   if (!message.guild) { return } // Ignore DMs
   if (!message.mentions.has(client.user?.id)) { return } // Check for bot mention
 
+  const permissions: PermissionResolvable = [
+    'ADD_REACTIONS',
+    'READ_MESSAGE_HISTORY',
+    'SEND_MESSAGES',
+    'USE_EXTERNAL_EMOJIS',
+  ]
+
   const response = await EmbedUtils.createEmbed(message.author, client)
   response.setTitle('Welcome to Ba! 🐑')
     .setDescription('Ba is a bot the looks to spice up your server by adding fun reactions to your messages.')
     .addField('Github (PRs encouraged)', 'https://github.com/asleepysheepy/Ba')
-    .addField('Invite Link', client.generateInvite({ permissions: ['SEND_MESSAGES', 'ADD_REACTIONS'] }))
+    .addField('Invite Link', client.generateInvite({ permissions }))
   message.channel.send(response)
 }
 
