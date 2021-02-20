@@ -5,7 +5,7 @@
   <a href="https://github.com/asleepysheepy/Ba/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/asleepysheepy/Ba.svg?style=flat-square" alt="Github License" />
   </a>
-  <a href="https://discordapp.com/oauth2/authorize?&client_id=432729863820935172&scope=bot&permissions=2112">
+  <a href="https://discordapp.com/oauth2/authorize?&client_id=432729863820935172&scope=bot&permissions=329792">
     <img src="https://img.shields.io/badge/Add%20to%20your-server-7289DA.svg?style=flat-square" alt="Add to your server" />
   </a>
    <a href="https://discord.gg/GMSFMpF">
