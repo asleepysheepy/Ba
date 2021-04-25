@@ -26,5 +26,8 @@
     "seed": "tsc && node -r dotenv/config ./node_modules/typeorm-seeding/dist/cli.js",
     "start": "tsc && node -r dotenv/config .",
     "typeorm": "tsc && node -r dotenv/config ./node_modules/typeorm/cli.js"
+  },
+  "ts-standard": {
+    "report": "stylish"
   }
 }

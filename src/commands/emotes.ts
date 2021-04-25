@@ -18,6 +18,6 @@ export const EmotesCommand: Command = {
       returnMessage += `• ${emote.formattedEmoji()} (\`${emote.name}\`)\n`
     })
 
-    message.channel.send(returnMessage)
-  },
+    await message.channel.send(returnMessage)
+  }
 }

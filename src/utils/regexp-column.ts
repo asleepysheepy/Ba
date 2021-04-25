@@ -3,24 +3,24 @@ import { Column, ColumnOptions } from 'typeorm'
 /**
  * Class for transforming a string to a regex and vice versa.
  */
-class RegExpStringTransformer {
+const RegExpStringTransformer = {
   /**
    * Turns a regular expression into a string.
    *
    * @param value the Regex to process
    */
-  static to(value: RegExp): string {
+  to: (value: RegExp): string => {
     return value.toString()
-  }
+  },
 
   /**
    * Turns a string into a RegExp instance.
    *
    * @param value the string to convert into a regexp
    */
-  static from(value: string): RegExp {
+  from: (value: string): RegExp => {
     const match = value.match(/^\/(.*)\/(.*)$/)
-    if (match) {
+    if (match != null) {
       const [, pattern, flags] = match
       return new RegExp(pattern, flags)
     } else {
@@ -34,7 +34,7 @@ class RegExpStringTransformer {
  *
  * @param opts The column options; see https://typeorm.io/#/entities/column-options
  */
-export function RegExpColumn(opts: ColumnOptions = {}): PropertyDecorator {
+export function RegExpColumn (opts: ColumnOptions = {}): PropertyDecorator {
   opts.type = String
   opts.transformer = RegExpStringTransformer
   return Column(opts)

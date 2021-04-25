@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
 export class createEmotesTable1608395376120 implements MigrationInterface {
-  public async up(queryRunner: QueryRunner): Promise<void> {
+  public async up (queryRunner: QueryRunner): Promise<void> {
     const emotesTable = new Table({
       name: 'emotes',
       columns: [
@@ -9,40 +9,40 @@ export class createEmotesTable1608395376120 implements MigrationInterface {
           name: 'id',
           type: 'int',
           isPrimary: true,
-          isGenerated: true,
+          isGenerated: true
         },
         {
           name: 'available_month',
-          type: 'int',
+          type: 'int'
         },
         {
           name: 'emoji',
-          type: 'varchar',
+          type: 'varchar'
         },
         {
           name: 'name',
-          type: 'varchar',
+          type: 'varchar'
         },
         {
           name: 'regex',
-          type: 'varchar',
+          type: 'varchar'
         },
         {
           name: 'created_at',
-          type: 'timestamp',
+          type: 'timestamp'
         },
         {
           name: 'updated_at',
           type: 'timestamp',
-          isNullable: true,
-        },
-      ],
+          isNullable: true
+        }
+      ]
     })
 
     await queryRunner.createTable(emotesTable, true)
   }
 
-  public async down(queryRunner: QueryRunner): Promise<void> {
+  public async down (queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable('emotes')
   }
 }

@@ -4,7 +4,7 @@ import { Emote, Months } from '../../src/models/emote'
 import { Factory, Seeder } from 'typeorm-seeding'
 
 export default class CreateEmotes implements Seeder {
-  public async run(factory: Factory, connection: Connection): Promise<void> {
+  public async run (factory: Factory, connection: Connection): Promise<void> {
     await connection
       .createQueryBuilder()
       .insert()
@@ -30,7 +30,7 @@ export default class CreateEmotes implements Seeder {
         { name: 'ghost', emoji: 'boo:496023553473380353', regex: /\b(gho+st|boo+)\b/, availableMonth: Months.OCTOBER, createdAt: new Date() },
         { name: 'pumpkin', emoji: 'pumpkin:496013175276175370', regex: /\bpumpkins?\b/, availableMonth: Months.OCTOBER, createdAt: new Date() },
         { name: 'rip', emoji: 'rip:496018846042554388', regex: /\bri+p\b/, availableMonth: Months.OCTOBER, createdAt: new Date() },
-        { name: 'skeletons', emoji: '💀', regex: /\b(spoo+ky+|sca+r+y+|skele(ton)?s?)\b/, availableMonth: Months.OCTOBER, createdAt: new Date() },
+        { name: 'skeletons', emoji: '💀', regex: /\b(spoo+ky+|sca+r+y+|skele(ton)?s?)\b/, availableMonth: Months.OCTOBER, createdAt: new Date() }
       ])
       .execute()
   }

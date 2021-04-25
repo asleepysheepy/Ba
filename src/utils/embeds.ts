@@ -13,18 +13,18 @@ const createEmbed = async (author: User, client: Client): Promise<MessageEmbed> 
     .setTimestamp(new Date())
 
   const botAvatar = client.user?.avatarURL()
-  if (botAvatar) { embed.setThumbnail(botAvatar) }
+  if (botAvatar != null) { embed.setThumbnail(botAvatar) }
 
   const authorAvatar = author.avatarURL()
-  if (authorAvatar) { embed.setAuthor(author.tag, authorAvatar) }
+  if (authorAvatar != null) { embed.setAuthor(author.tag, authorAvatar) }
 
   const sheepyUser = await client.users.fetch('145696462959935488')
   const sheepyAvatar = sheepyUser.avatarURL()
-  if (sheepyAvatar) { embed.setFooter('Ba is crafted with love by Sleepy Sheepy#0179', sheepyAvatar) }
+  if (sheepyAvatar != null) { embed.setFooter('Ba is crafted with love by Sleepy Sheepy#0179', sheepyAvatar) }
 
   return embed
 }
 
 export const EmbedUtils = {
-  createEmbed,
+  createEmbed
 }

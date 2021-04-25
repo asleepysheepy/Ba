@@ -8,28 +8,31 @@ import { Logger } from './utils/logger'
  *
  * @param client - The Discord.js client instance
  */
-function setupEvents(client: Client): void {
+function setupEvents (client: Client): void {
   Events.eventsList.forEach((event) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const handle = async (...args: Array<any>) => await event.handle(...args, client)
+    const handle = (...args: any[]): void => event.handle(...args, client)
     Logger.info(`Registering an handler for ${event.eventName} events.`)
     client.on(event.eventName, handle)
   })
 
-  client.on('message', (message) => CommandHandler.handleCommand(message))
+  client.on('message', (message) => {
+    CommandHandler.handleCommand(message)
+      .then(() => {})
+      .catch(() => {})
+  })
 }
 
 /**
  * The main function that starts Ba.
  */
-async function startBa(): Promise<void> {
+async function startBa (): Promise<void> {
   Logger.info('Welcome to Ba 🐑!')
 
   const client = new Client()
   setupEvents(client)
 
   try {
-    await client.login(process.env['BOT_TOKEN'])
+    await client.login(process.env.BOT_TOKEN)
   } catch (error) {
     Logger.error('Unable to log in to discord, did you set your bot token?')
     process.exit()
@@ -39,6 +42,7 @@ async function startBa(): Promise<void> {
 }
 
 startBa().catch((error) => {
-  Logger.error(`Unable to start Ba.\n${error}`)
+  const errorMessage: string = error.toString()
+  Logger.error(`Unable to start Ba.\n${errorMessage}`)
   process.exit()
 })
