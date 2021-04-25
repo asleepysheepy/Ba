@@ -26,10 +26,12 @@ jobs:
         DO_TOKEN: ${{ secrets.DO_PAT }}
         PVT_KEY: ${{ secrets.SSH_KEY }}
         PUB_KEY: ${{ secrets.SSH_KEY_PUB }}
+    - name: Save droplet IP address as env var
+      run: echo "SSH_HOST_IP=$(terraform output droplet_ip_address)" >> $GITHUB_ENV
     - name: Clone, install deps, and start Ba
       uses: appleboy/ssh-action@master
       with:
-        host: terraform output droplet_ip_address
+        host: ${{ env.SSH_HOST_IP }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
