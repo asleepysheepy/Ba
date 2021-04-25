@@ -11,3 +11,8 @@ resource "digitalocean_droplet" "bot" {
     data.digitalocean_ssh_key.lexi.id
   ]
 }
+
+output "droplet_ip_address" {
+  value      = digitalocean_droplet.bot.ipv4_address
+  sensitive = true
+}
