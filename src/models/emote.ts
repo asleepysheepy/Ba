@@ -4,7 +4,7 @@ import {
   BeforeUpdate,
   Column,
   Entity,
-  PrimaryGeneratedColumn,
+  PrimaryGeneratedColumn
 } from 'typeorm'
 import { RegExpColumn } from '../utils/regexp-column'
 
@@ -87,7 +87,7 @@ class Emote extends BaseEntity {
    *
    * @param message The message to test against
    */
-  shouldReact(message: string): boolean {
+  shouldReact (message: string): boolean {
     // const regexp = new RegExp(this.regex, 'i')
     return this.regex.test(message)
   }
@@ -95,8 +95,8 @@ class Emote extends BaseEntity {
   /**
    * Formats the emoji for use in discord messages
    */
-  formattedEmoji(): string {
-    if ( this.emoji.startsWith('a:')) { return `<${this.emoji}>` }
+  formattedEmoji (): string {
+    if (this.emoji.startsWith('a:')) { return `<${this.emoji}>` }
 
     return this.emoji.includes(':') ? `<:${this.emoji}>` : this.emoji
   }
@@ -107,7 +107,7 @@ class Emote extends BaseEntity {
    * Sets the created at timestamp.
    */
   @BeforeInsert()
-  onBeforeInsert(): void {
+  onBeforeInsert (): void {
     this.createdAt = new Date()
   }
 
@@ -117,7 +117,7 @@ class Emote extends BaseEntity {
    * Sets the updated at timestamp.
    */
   @BeforeUpdate()
-  onBeforeUpdate(): void {
+  onBeforeUpdate (): void {
     this.updatedAt = new Date()
   }
 
@@ -126,18 +126,18 @@ class Emote extends BaseEntity {
    *
    * @param month The month for which to query.
    */
-  static async forMonth(month: Months): Promise<Array<Emote>> {
-    return await Emote.find({ where: { availableMonth: month }})
+  static async forMonth (month: Months): Promise<Emote[]> {
+    return await Emote.find({ where: { availableMonth: month } })
   }
 
   /**
    * Finds all Emotes that are active year round.
    */
-  static async yearRound(): Promise<Array<Emote>> {
+  static async yearRound (): Promise<Emote[]> {
     return await Emote.forMonth(Months.EVERY)
   }
 
-  static async forToday(today = new Date()): Promise<Array<Emote>> {
+  static async forToday (today = new Date()): Promise<Emote[]> {
     const month = today.getMonth()
 
     const yearRound = await Emote.yearRound()

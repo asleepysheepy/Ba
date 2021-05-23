@@ -9,10 +9,10 @@ const COMMAND_PREFIX = '?ba '
  * A list of all commands.
  */
 const commandList = [
-  EmotesCommand,
+  EmotesCommand
 ]
 
 export const Commands = {
   COMMAND_PREFIX,
-  commandList,
+  commandList
 }

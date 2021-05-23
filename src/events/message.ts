@@ -11,8 +11,8 @@ import { MessageUtils } from '../utils/messages'
  */
 export const MessageEvent: Event = {
   eventName: 'message',
-  handle: (message: Message, client: Client): void => {
-    MessageUtils.handleMention(message, client)
-    MessageUtils.handleReactions(message, client)
-  },
+  handle: async (message: Message, client: Client): Promise<void> => {
+    await MessageUtils.handleMention(message, client)
+    await MessageUtils.handleReactions(message, client)
+  }
 }
