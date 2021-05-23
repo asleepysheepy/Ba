@@ -4,7 +4,7 @@
   "description": "reacts to discord messages with fun emojis",
   "main": "dist/src/index.js",
   "dependencies": {
-    "discord.js": "discordjs/discord.js",
+    "discord.js": "^12.5.3",
     "pg": "^8.4.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.29",
