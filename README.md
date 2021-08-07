@@ -51,7 +51,7 @@ If you want to invite the public Ba account to your server, go [here](https://di
 
 #### Requirements
 
-* [Node.js](https://nodejs.org/en/)
+* [Node.js](https://nodejs.org/en/), v16.6.0 or higher
 * [Yarn Package Manager](https://yarnpkg.com/)
 * [Docker](https://www.docker.com/)/[Docker Compose](https://docs.docker.com/compose/)
 
@@ -75,7 +75,7 @@ Click the 'Generate OAuth2 URL' button in the Discord Developer pane to generate
 
 ### Ba's reactions
 
-A list of reactions can be found [here](https://github.com/asleepysheepy/Ba/wiki/Reactions).
+You can use the `/emotes` command to see a list of Ba's reactions or a list of reactions can be found [here](https://github.com/asleepysheepy/Ba/wiki/Reactions).
 
 ## Dependencies and frameworks
 
@@ -98,7 +98,7 @@ Please report bugs by opening an [issue](https://github.com/asleepysheepy/Ba/iss
 
 #### Requirements
 * [Docker](https://www.docker.com/)/[Docker Compose](https://docs.docker.com/compose/)
-* [Node.js](https://nodejs.org/en/) 14.0 or higher
+* [Node.js](https://nodejs.org/en/) v16.6.0 or higher
 * [Yarn](https://yarnpkg.com/)
 
 #### Running Ba for local development
