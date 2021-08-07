@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://cdn.discordapp.com/avatars/432729863820935172/f29e3fa18a3521d69a792f9f8124cfec.png?size=1024" height="250" />
+  <img src="https://cdn.discordapp.com/avatars/432729863820935172/efb04ebd24e45bed1d50e6dd52589cfc.png?size=1024" height="250" />
   <h1>Ba Discord Bot</h1>
 
   <a href="https://github.com/asleepysheepy/Ba/blob/main/LICENSE">
