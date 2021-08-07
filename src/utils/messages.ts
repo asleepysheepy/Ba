@@ -12,7 +12,7 @@ import { Emote } from '../models/emote'
 const handleMention = async (message: Message, client: Client): Promise<void> => {
   if (client.user == null) { return }
   if (message.guild == null) { return } // Ignore DMs
-  if (!message.mentions.has(client.user?.id)) { return } // Check for bot mention
+  if (!message.mentions.has(client.user.id)) { return } // Check for bot mention
 
   const permissions: PermissionResolvable = [
     'ADD_REACTIONS',
@@ -25,8 +25,9 @@ const handleMention = async (message: Message, client: Client): Promise<void> =>
   response.setTitle('Welcome to Ba! 🐑')
     .setDescription('Ba is a bot the looks to spice up your server by adding fun reactions to your messages.')
     .addField('Github (PRs encouraged)', 'https://github.com/asleepysheepy/Ba')
-    .addField('Invite Link', client.generateInvite({ permissions }))
-  await message.channel.send(response)
+    .addField('Invite Link', client.generateInvite({ permissions, scopes: ['bot'] }))
+
+  await message.reply({ embeds: [response], allowedMentions: { repliedUser: false } })
 }
 
 /**

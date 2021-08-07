@@ -4,7 +4,7 @@ import { Event } from './event'
 import { Logger } from '../utils/logger'
 
 export const InteractionEvent: Event = {
-  eventName: 'interaction',
+  eventName: 'interactionCreate',
   handle: async (interaction: Interaction, client: Client) => {
     // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     if (!interaction.isCommand()) { return }

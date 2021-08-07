@@ -22,7 +22,10 @@ async function startBa (): Promise<void> {
   Logger.info('Welcome to Ba 🐑!')
 
   const client = new Client({
-    intents: Intents.NON_PRIVILEGED
+    intents: [
+      Intents.FLAGS.GUILDS,
+      Intents.FLAGS.GUILD_MESSAGES
+    ]
   })
 
   setupEvents(client)
