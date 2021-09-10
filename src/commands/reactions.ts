@@ -5,9 +5,9 @@ import { CommandInteraction } from 'discord.js'
 /**
  * Prints a list of all emotes which are active for today.
  */
-export const EmotesCommand: Command = {
+export const ReactionsCommand: Command = {
   data: {
-    name: 'emotes',
+    name: 'reactions',
     description: 'Prints a list of all currently active emotes.',
     defaultPermission: true
   },
